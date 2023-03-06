@@ -9,7 +9,7 @@ public:
     CookBook(){
         chickenCurry = new Recipe("Chicken Curry And Rice", "Dinner", "None");
         chickenTikka = new Recipe("Chicken Tikka Masala", "Dinner", "None");
-        vegetarianBolognaise = new Recipe("Massive dick and balls", "Dinner", "Vegetaian");
+        vegetarianBolognaise = new Recipe("Vegetarian Meatballs", "Dinner", "Vegetaian");
         recipies[0] = {chickenCurry};
 
         recipies[1] = {chickenTikka};

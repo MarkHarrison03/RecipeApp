@@ -20,11 +20,11 @@
       <x>0</x>
       <y>0</y>
       <width>791</width>
-      <height>541</height>
+      <height>550</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
+     <item row="3" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
         <number>200</number>
@@ -51,17 +51,60 @@
        </item>
       </layout>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <pointsize>48</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
+     <item row="1" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="titleLabel">
+         <property name="font">
+          <font>
+           <pointsize>48</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>FOODNAME</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>IMAGE</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="DietLabel">
+         <property name="text">
+          <string>Dietary</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="AllergiesLabel">
+         <property name="text">
+          <string>Allergies</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="CaloriesLabel">
+         <property name="text">
+          <string>Calories</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="TTCLabel">
+         <property name="text">
+          <string>Time to cook</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
@@ -77,14 +120,20 @@
    </property>
    <widget class="QMenu" name="menuNew_Recipe">
     <property name="title">
-     <string>Help</string>
+     <string>Menu</string>
     </property>
     <addaction name="separator"/>
     <addaction name="separator"/>
     <addaction name="actionCreate_new_recipe"/>
     <addaction name="actionDelete_recipe"/>
    </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+   </widget>
    <addaction name="menuNew_Recipe"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionCreate_new_recipe">

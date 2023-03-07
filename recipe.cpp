@@ -2,23 +2,17 @@
 #include <string>
 using namespace std;
 
-Recipe::Recipe(string name, string category, string dietaryRestriction){
+Recipe::Recipe(string name, string category, string dietaryRestriction, int calories){
             this->name = name;
             this->category = category;
             this->dietaryRestriction = dietaryRestriction;
+            this->calories = calories;
         };
 
 
 
-struct nutrition{
-    int calories = 0;
-    int carbohydrates = 0;
-    int protein = 0;
-    int fat = 0;
-    int sodium = 0;
-};
-nutrition a;
 
+Food::nutrition a;
 
 void addNutrition(int calories, int carbohydrates, int protein, int fat, int sodium){
 
@@ -27,6 +21,11 @@ void addNutrition(int calories, int carbohydrates, int protein, int fat, int sod
     a.protein = protein;
     a.fat = fat;
     a.sodium = sodium;
+
+};
+int getCalories(){
+
+    return a.calories;
 };
 
 string getNutrition(){

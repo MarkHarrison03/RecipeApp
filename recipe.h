@@ -1,19 +1,22 @@
 #ifndef RECIPE_H
 #define RECIPE_H
 #include <string>
-class Recipe
+#include "Food.h"
+using namespace std;
+
+class Recipe : public Food
 {
 public:
-    std::string name;
-    std::string category;
-    std::string dietaryRestriction;
+    string name;
+    string category;
+    int calories;
+    string dietaryRestriction;
 
 
-        //using a union to represent a nutrition table
-
-
-    Recipe(std::string, std::string, std::string);
+    Recipe(string, string, string, int);
     void addNutrition(int,int,int,int,int);
-    std::string getNutrition();
+    int getCalories(void);
+    string getNutrition(void);
+
 };
 #endif // RECIPE_H

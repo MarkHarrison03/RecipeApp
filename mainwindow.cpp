@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "recipe.h"
 #include "CookBook.cpp"
+#include <QN
 int counter = 0;
 CookBook* cookbook = new CookBook();
 MainWindow::MainWindow(QWidget *parent)
@@ -45,5 +46,11 @@ void MainWindow::on_pushButton_2_clicked()
     ui->CaloriesLabel->setText("Calories :"  +QString::number(cookbook->recipies[counter]->calories));
 
 
+}
+
+
+void MainWindow::on_actionCreate_new_recipe_triggered()
+{
+    NewWindow *nw = new NewWindow();
 }
 

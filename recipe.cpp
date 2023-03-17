@@ -1,12 +1,17 @@
 #include "recipe.h"
 #include <string>
+#include <initializer_list>
+#include <type_traits>
+#include <vector>
 using namespace std;
 
-Recipe::Recipe(string name, string category, string dietaryRestriction, int calories){
+
+Recipe::Recipe(string name, string category, string dietaryRestriction, int calories, std::vector<Ingredient> vectorOfIngredients){
             this->name = name;
             this->category = category;
             this->dietaryRestriction = dietaryRestriction;
             this->calories = calories;
+            ingredients = vectorOfIngredients;
         };
 
 

@@ -24,7 +24,39 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="3" column="0">
+     <item row="2" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="DietLabel">
+         <property name="text">
+          <string>Dietary</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="AllergiesLabel">
+         <property name="text">
+          <string>Allergies</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="CaloriesLabel">
+         <property name="text">
+          <string>Calories</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="TTCLabel">
+         <property name="text">
+          <string>Time to cook</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="4" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
         <number>200</number>
@@ -74,37 +106,12 @@
        </item>
       </layout>
      </item>
-     <item row="2" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QLabel" name="DietLabel">
-         <property name="text">
-          <string>Dietary</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="AllergiesLabel">
-         <property name="text">
-          <string>Allergies</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="CaloriesLabel">
-         <property name="text">
-          <string>Calories</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="TTCLabel">
-         <property name="text">
-          <string>Time to cook</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_Ingredients">
+       <property name="text">
+        <string>Ingredients: </string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>

@@ -1,6 +1,0 @@
-#include "meat.h"
-
-Meat::Meat(std::string name, int calories, )
-{
-
-}

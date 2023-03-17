@@ -6,9 +6,10 @@
 class Meat : public Ingredient
 {
 public:
-    Meat(std::string name, int calories, double cookingTemperature, std::string color, int averageShelfLife, ) : Ingredient(name, calories){};
+    Meat(std::string, int, int, std::string);
     std::string isVegetarian();
-    double cookingTemperature
+    double cookingTemperature = 0;
+    std::string color;
 };
 
 #endif // MEAT_H

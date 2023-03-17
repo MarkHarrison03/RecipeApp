@@ -12,6 +12,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->titleLabel->setText(QString::fromStdString(cookbook->chickenCurry->name));
     ui->CaloriesLabel->setText("Calories :"  +QString::number(cookbook->chickenCurry->calories));
+    std::string s = "";
+    for( Ingredient* i : cookbook->chickenCurry->ingredients){
+        s += i->getName();
+    }
+
+    ui->label_Ingredients->setText("Ingredients: " + QString::fromStdString(s));
 
 };
 

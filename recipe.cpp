@@ -6,17 +6,20 @@
 using namespace std;
 
 
-Recipe::Recipe(string name, string category, string dietaryRestriction, int calories, std::vector<Ingredient> vectorOfIngredients){
+Recipe::Recipe(string name, string category, string dietaryRestriction, int calories){
             this->name = name;
             this->category = category;
             this->dietaryRestriction = dietaryRestriction;
             this->calories = calories;
-            ingredients = vectorOfIngredients;
         };
 
 
 
-
+void Recipe::addIngredients(std::vector<Ingredient*> ingredients){
+    for(Ingredient *i : ingredients){
+        this->ingredients.push_back(i);
+    }
+}
 Food::nutrition a;
 
 void addNutrition(int calories, int carbohydrates, int protein, int fat, int sodium){

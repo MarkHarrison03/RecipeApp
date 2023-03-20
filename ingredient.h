@@ -5,12 +5,13 @@
 class Ingredient
 {
 public:
+    virtual ~Ingredient();
     Ingredient();
     Ingredient(std::string name, int calories);
     Ingredient(Ingredient& copyIngredient);
     inline std::string getName(){return name;};
     inline int getCalories(){return calories;};
-    virtual std::string isVegetarian();
+    virtual bool isVegetarian();
 
 private:
     std::string name;

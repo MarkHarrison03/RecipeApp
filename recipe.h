@@ -8,7 +8,7 @@
 #include "allergen.h"
 using namespace std;
 
-class Recipe : public Food, public allergen
+class Recipe : public Food, public Allergen
 {
 public:
     string name;

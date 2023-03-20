@@ -25,6 +25,9 @@ set(PROJECT_SOURCES
         meat.cpp
         ingredient.h
         ingredient.cpp
+        addallergenwindow.cpp
+        addallergenwindow.h
+        addallergenwindow.ui
         Food.h
         allergen.cpp
         allergen.h

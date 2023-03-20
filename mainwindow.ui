@@ -129,9 +129,15 @@
     <property name="title">
      <string>Menu</string>
     </property>
+    <widget class="QMenu" name="menuCreate_new">
+     <property name="title">
+      <string>Create new...</string>
+     </property>
+     <addaction name="actionAllergen"/>
+    </widget>
     <addaction name="separator"/>
     <addaction name="separator"/>
-    <addaction name="actionCreate_new_recipe"/>
+    <addaction name="menuCreate_new"/>
     <addaction name="actionDelete_recipe"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
@@ -143,14 +149,14 @@
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionCreate_new_recipe">
-   <property name="text">
-    <string>Create new recipe.</string>
-   </property>
-  </action>
   <action name="actionDelete_recipe">
    <property name="text">
     <string>Delete recipe</string>
+   </property>
+  </action>
+  <action name="actionAllergen">
+   <property name="text">
+    <string>Allergen</string>
    </property>
   </action>
  </widget>

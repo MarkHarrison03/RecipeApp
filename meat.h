@@ -7,8 +7,9 @@
 class Meat : public Ingredient, public Allergen
 {
 public:
+    virtual ~Meat();
     Meat(std::string, int, int, std::string);
-    std::string isVegetarian();
+    bool isVegetarian();
     double cookingTemperature = 0;
     std::string color;
 };

@@ -4,3 +4,7 @@ Meat::Meat(std::string name, int calories, int cookingTemperature, std::string c
     this->cookingTemperature = cookingTemperature;
     this->color = color;
 };
+Meat::~Meat(){};
+bool Meat::isVegetarian(){
+    return true;
+}

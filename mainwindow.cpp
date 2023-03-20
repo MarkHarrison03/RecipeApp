@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "recipe.h"
 #include "CookBook.cpp"
+#include "addallergenwindow.h"
 
 int counter = 0;
 CookBook* cookbook = new CookBook();
@@ -52,5 +53,12 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_actionCreate_new_recipe_triggered()
 {
+}
+
+
+void MainWindow::on_actionAllergen_triggered()
+{
+        AddAllergenWindow *window = new AddAllergenWindow();
+         connect(ui->actionAllergen, &QAction::triggered, window, &AddAllergenWindow::show_window);
 }
 

@@ -6,3 +6,7 @@ Ingredient::Ingredient(Ingredient& copyIngredient){
     name = copyIngredient.name;
     calories = copyIngredient.calories;
 };
+Ingredient::~Ingredient(){};
+bool Ingredient::isVegetarian(){
+    return true;
+}

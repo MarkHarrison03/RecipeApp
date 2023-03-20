@@ -22,6 +22,8 @@ private slots:
 
     void on_actionCreate_new_recipe_triggered();
 
+    void on_actionAllergen_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

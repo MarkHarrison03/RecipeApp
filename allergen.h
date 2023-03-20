@@ -2,16 +2,17 @@
 #define ALLERGEN_H
 #include <string>
 #include <vector>
+
 class Allergen
 {
 private:
-    std::vector<std::string> listOfAllergens{"Milk", "Eggs", "Fish", "Shellfish", "Nuts", "Wheat", "Soya", "Moluscs", "Celery", "Sesame", "Mustard","Crustaceans"};
+    static std::vector<std::string> listOfAllergens;
 public:
     Allergen();
-    std::vector<std::string> getAllergens();
+    std::string getAllergens();
     void addAllergen(std::string);
-
-
+    
+    
 };
 
 #endif // ALLERGEN_H

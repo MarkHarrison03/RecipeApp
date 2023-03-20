@@ -18,6 +18,9 @@ public:
 public slots:
     void show_window();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::AddAllergenWindow *ui;
 };

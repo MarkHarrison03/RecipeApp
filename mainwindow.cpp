@@ -5,6 +5,7 @@
 #include "addallergenwindow.h"
 
 int counter = 0;
+Allergen allergen;
 CookBook* cookbook = new CookBook();
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,7 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->titleLabel->setText(QString::fromStdString(cookbook->chickenCurry->name));
     ui->CaloriesLabel->setText("Calories :"  +QString::number(cookbook->chickenCurry->calories));
-
+    std::string str(allergen.getAllergens().begin(), allergen.getAllergens().end());
+    QString stringOfAllergens  = QString::fromStdString( str );
+    ui->label_Ingredients->setText(stringOfAllergens);
 
 };
 
@@ -51,14 +54,10 @@ void MainWindow::on_pushButton_2_clicked()
 }
 
 
-void MainWindow::on_actionCreate_new_recipe_triggered()
-{
-}
-
-
 void MainWindow::on_actionAllergen_triggered()
 {
+        ui->titleLabel->setText("HEllo!!!");
         AddAllergenWindow *window = new AddAllergenWindow();
-         connect(ui->actionAllergen, &QAction::triggered, window, &AddAllergenWindow::show_window);
+        connect(ui->actionAllergen, &QAction::triggered, window, &AddAllergenWindow::show_window);
 }
 

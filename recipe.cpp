@@ -15,11 +15,7 @@ Recipe::Recipe(string name, string category, string dietaryRestriction, int calo
 
 
 
-void Recipe::addIngredients(std::vector<Ingredient*> ingredients){
-    for(Ingredient *i : ingredients){
-        this->ingredients.push_back(i);
-    }
-}
+
 Food::nutrition a;
 
 void addNutrition(int calories, int carbohydrates, int protein, int fat, int sodium){

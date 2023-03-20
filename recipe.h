@@ -5,16 +5,17 @@
 #include <vector>
 #include <initializer_list>
 #include "ingredient.h"
+#include "allergen.h"
 using namespace std;
 
-class Recipe : public Food
+class Recipe : public Food, public allergen
 {
 public:
     string name;
     string category;
     int calories;
     string dietaryRestriction;
-    std::vector<Ingredient*> ingredients;
+
 
     Recipe(string, string, string, int);
     void addIngredients(std::vector<Ingredient*>);

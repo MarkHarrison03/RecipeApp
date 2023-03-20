@@ -21,6 +21,13 @@ set(PROJECT_SOURCES
         recipe.cpp
         CookBook.cpp
         Food.cpp
+        meat.h
+        meat.cpp
+        ingredient.h
+        ingredient.cpp
+        Food.h
+        allergen.cpp
+        allergen.h
     )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

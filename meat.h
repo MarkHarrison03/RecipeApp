@@ -2,8 +2,9 @@
 #define MEAT_H
 
 #include "ingredient.h"
+#include "allergen.h"
 
-class Meat : public Ingredient
+class Meat : public Ingredient, public Allergen
 {
 public:
     Meat(std::string, int, int, std::string);

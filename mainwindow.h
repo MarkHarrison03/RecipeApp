@@ -17,6 +17,7 @@ public:
     ~MainWindow();
 public slots:
     void updateAllergens();
+    void updateIngredients();
 private slots:
     void on_pushButton_clicked();
 
@@ -24,7 +25,9 @@ private slots:
 
     void on_actionAllergen_triggered();
 
-    void on_actionAllergen_triggered(bool checked);
+//    void on_actionAllergen_triggered(bool checked);
+
+    void on_actionIngredient_triggered();
 
 private:
     Ui::MainWindow *ui;

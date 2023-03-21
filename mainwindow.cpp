@@ -3,6 +3,8 @@
 #include "recipe.h"
 #include "CookBook.cpp"
 #include "addallergenwindow.h"
+#include "addingredientwindow.h"
+#include <sstream>
 
 int counter = 0;
 Allergen allergen;
@@ -13,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
+    ui->gridLayout->setSizeConstraint(QLayout::SetMinimumSize);
+    ui->label_Ingredient->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum); //NB find out whatws happening here
+    ui->label_Ingredient->setWordWrap(true);
     ui->titleLabel->setText(QString::fromStdString(cookbook->chickenCurry->name));
     ui->CaloriesLabel->setText("Calories :"  +QString::number(cookbook->chickenCurry->calories));
     std::string str;
@@ -50,6 +55,16 @@ void MainWindow::updateAllergens(){
         ui->label_Ingredients->setText(QString::fromStdString( str ));
 
 }
+void MainWindow::updateIngredients(){
+
+    std::stringstream ss;
+    std::string str;
+    for( auto &piece : Ingredient::getListOfIngredients()){
+        ss << "Name: " << piece->getName() << "\n" << "Calories:" << piece->getCalories() << "\n\n";
+    }
+    str = ss.str();
+    ui->label_Ingredient->setText(QString::fromStdString(str));
+}
 
 void MainWindow::on_pushButton_2_clicked()
 {
@@ -67,12 +82,23 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_actionAllergen_triggered()
 {
-        AddAllergenWindow* window = new AddAllergenWindow;
-        connect(window, SIGNAL(allergensUpdated()), this, SLOT(updateAllergens()));
-        window->show_window();
+        AddAllergenWindow* windowAllergen = new AddAllergenWindow;
+        connect(windowAllergen, SIGNAL(allergensUpdated()), this, SLOT(updateAllergens()));
+        windowAllergen->show_window();
+        qDebug() <<"TYo!";
 
 
 
+
+}
+
+
+void MainWindow::on_actionIngredient_triggered()
+{
+    addingredientwindow* windowIng = new addingredientwindow;
+    connect(windowIng, SIGNAL(ingredientsUpdated()), this, SLOT(updateIngredients()));
+    windowIng->show_window();
+    qDebug()<<"HEY!";
 
 }
 

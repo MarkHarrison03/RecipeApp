@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>698</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,10 +20,40 @@
       <x>0</x>
       <y>0</y>
       <width>791</width>
-      <height>550</height>
+      <height>604</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_Ingredients">
+       <property name="text">
+        <string>Ingredients: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="titleLabel">
+         <property name="font">
+          <font>
+           <pointsize>48</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>FOODNAME</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>IMAGE</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
      <item row="2" column="0">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
@@ -56,13 +86,13 @@
        </item>
       </layout>
      </item>
-     <item row="4" column="0">
+     <item row="6" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
         <number>200</number>
        </property>
        <property name="topMargin">
-        <number>200</number>
+        <number>15</number>
        </property>
        <property name="bottomMargin">
         <number>0</number>
@@ -83,33 +113,10 @@
        </item>
       </layout>
      </item>
-     <item row="1" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QLabel" name="titleLabel">
-         <property name="font">
-          <font>
-           <pointsize>48</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>FOODNAME</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>IMAGE</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_Ingredients">
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_Ingredient">
        <property name="text">
-        <string>Ingredients: </string>
+        <string>TextLabel</string>
        </property>
       </widget>
      </item>
@@ -134,6 +141,7 @@
       <string>Create new...</string>
      </property>
      <addaction name="actionAllergen"/>
+     <addaction name="actionIngredient"/>
     </widget>
     <addaction name="separator"/>
     <addaction name="separator"/>
@@ -157,6 +165,11 @@
   <action name="actionAllergen">
    <property name="text">
     <string>Allergen</string>
+   </property>
+  </action>
+  <action name="actionIngredient">
+   <property name="text">
+    <string>Ingredient</string>
    </property>
   </action>
  </widget>

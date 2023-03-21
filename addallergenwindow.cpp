@@ -23,6 +23,7 @@ void AddAllergenWindow::show_window(){
 
 }
 
+
 void AddAllergenWindow::on_pushButton_clicked()
 {
 

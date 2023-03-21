@@ -28,6 +28,9 @@ set(PROJECT_SOURCES
         addallergenwindow.cpp
         addallergenwindow.h
         addallergenwindow.ui
+        addingredientwindow.cpp
+        addingredientwindow.h
+        addingredientwindow.ui
         Food.h
         allergen.cpp
         allergen.h

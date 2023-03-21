@@ -1,5 +1,7 @@
 #include "addallergenwindow.h"
 #include <iostream>
+#include <QDebug>
+#include <QString>
 #include "allergen.h"
 #include "./ui_addallergenwindow.h"
 
@@ -16,17 +18,25 @@ AddAllergenWindow::~AddAllergenWindow()
 }
 
 void AddAllergenWindow::show_window(){
+
     show();
-    std::cout << "hello!";
 
 }
 
 void AddAllergenWindow::on_pushButton_clicked()
 {
+
     QString text = ui->plainTextEdit->toPlainText();
-    if(!text.compare("Enter Allergen Name")){
+
+    if((QString::compare(text, "Enter Allergen Name", Qt::CaseInsensitive) != 0)){
         Allergen allergen;
         allergen.addAllergen(text.toStdString());
+        emit allergensUpdated();
+        qDebug("Hello!");
+
     }
+
+
+    hide();
 }
 

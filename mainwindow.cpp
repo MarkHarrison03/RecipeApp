@@ -11,12 +11,15 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
     ui->titleLabel->setText(QString::fromStdString(cookbook->chickenCurry->name));
     ui->CaloriesLabel->setText("Calories :"  +QString::number(cookbook->chickenCurry->calories));
-    std::string str(allergen.getAllergens().begin(), allergen.getAllergens().end());
-    QString stringOfAllergens  = QString::fromStdString( str );
-    ui->label_Ingredients->setText(stringOfAllergens);
+    std::string str;
+    for(const auto &piece : allergen.getAllergens()){
+        str += piece;
+    }
+    ui->label_Ingredients->setText(QString::fromStdString( str ));
 
 };
 
@@ -38,7 +41,15 @@ void MainWindow::on_pushButton_clicked()
 
 
 }
+void MainWindow::updateAllergens(){
 
+        std::string str;
+        for(const auto &piece : allergen.getAllergens()){
+            str += piece;
+        }
+        ui->label_Ingredients->setText(QString::fromStdString( str ));
+
+}
 
 void MainWindow::on_pushButton_2_clicked()
 {
@@ -56,8 +67,12 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_actionAllergen_triggered()
 {
-        ui->titleLabel->setText("HEllo!!!");
-        AddAllergenWindow *window = new AddAllergenWindow();
-        connect(ui->actionAllergen, &QAction::triggered, window, &AddAllergenWindow::show_window);
+        AddAllergenWindow* window = new AddAllergenWindow;
+        connect(window, SIGNAL(allergensUpdated()), this, SLOT(updateAllergens()));
+        window->show_window();
+
+
+
+
 }
 

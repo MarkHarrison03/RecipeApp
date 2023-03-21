@@ -17,6 +17,8 @@ public:
 
 public slots:
     void show_window();
+signals:
+    void allergensUpdated();
 
 private slots:
     void on_pushButton_clicked();

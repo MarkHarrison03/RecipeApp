@@ -12,15 +12,19 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    friend class AddAllergenWindow;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+public slots:
+    void updateAllergens();
 private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
 
     void on_actionAllergen_triggered();
+
+    void on_actionAllergen_triggered(bool checked);
 
 private:
     Ui::MainWindow *ui;

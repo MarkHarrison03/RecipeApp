@@ -2,6 +2,7 @@
 #define CREATERECIPEWINDOW_H
 
 #include <QDialog>
+#include "recipe.h"
 
 namespace Ui {
 class CreateRecipeWindow;
@@ -17,6 +18,8 @@ public:
     void show_window();
 private slots:
     void on_pushButton_clicked();
+signals:
+    void recipeAdded(Recipe*);
 
 private:
     Ui::CreateRecipeWindow *ui;

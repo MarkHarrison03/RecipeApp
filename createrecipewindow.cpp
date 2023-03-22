@@ -55,6 +55,8 @@ void CreateRecipeWindow::on_pushButton_clicked()
         }
     }
     Recipe* newRecipe = new Recipe(name, "Breakfast", stepsString, cals, ttcInt, ingredients);
-    MainWindow::listOfRecipies.push_back(newRecipe);
+    emit recipeAdded(newRecipe);
+    qDebug()<< "Hello";
+    hide();
 }
 

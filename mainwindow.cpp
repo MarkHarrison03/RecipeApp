@@ -7,13 +7,17 @@
 #include "createrecipewindow.h"
 #include <sstream>
 #include <vector>
-
+std::vector<Recipe*> listOfRecipies;
 int counter = 0;
 Allergen allergen;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    Ingredient* a = new Ingredient("chicken", 400);
+    QList<Ingredient*> ingList{a};
+    Recipe* baseRecipe = new Recipe("Chicken Curry and Rice", "Dinner", "Cook", 400, 20, ingList);
+    listOfRecipies.push_back(baseRecipe);
 
     ui->setupUi(this);
     ui->gridLayout->setSizeConstraint(QLayout::SetMinimumSize);
@@ -36,7 +40,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     counter++;
-    if (counter > listOfRecipies.size()){
+    if (counter >= listOfRecipies.size()){
+        qDebug() << "Pushbutton2 counter:" << counter;
+
         counter = 0;
     }
     Recipe* currentRecipe = listOfRecipies.at(counter);
@@ -45,6 +51,7 @@ void MainWindow::on_pushButton_clicked()
 
 
 }
+
 void MainWindow::updateAllergens(){
 
         std::string str;
@@ -53,6 +60,11 @@ void MainWindow::updateAllergens(){
         }
         ui->label_Ingredients->setText(QString::fromStdString( str ));
 
+}
+void MainWindow::updateRecipies(Recipe* a){
+    qDebug() << "YOOOOY!";
+    listOfRecipies.push_back(a);
+    qDebug() << QString::fromStdString(listOfRecipies.at(0)->name);
 }
 void MainWindow::updateIngredients(){
 
@@ -74,12 +86,13 @@ void MainWindow::updateIngredients(){
 void MainWindow::on_pushButton_2_clicked()
 {
     counter--;
-    if (counter == -1){
-        counter = 2;
+    if (counter <= -1){
+        qDebug() << "Pushbutton2 counter:" << counter;
+        counter = listOfRecipies.size();
     }
-
-    ui->titleLabel->setText(QString::fromStdString(cookbook->recipies[counter]->name));
-    ui->CaloriesLabel->setText("Calories :"  +QString::number(cookbook->recipies[counter]->calories));
+    Recipe* currentRecipe = listOfRecipies.at(counter);
+    ui->titleLabel->setText(QString::fromStdString(currentRecipe->name));
+    ui->CaloriesLabel->setText("Calories :"  +QString::number(currentRecipe->calories));
 
 
 }
@@ -111,6 +124,8 @@ void MainWindow::on_actionIngredient_triggered()
 void MainWindow::on_actionRecipe_triggered()
 {
     CreateRecipeWindow* a = new CreateRecipeWindow;
+    connect(a, SIGNAL(recipeAdded(Recipe*)), this, SLOT(updateRecipies(Recipe*)));
+
     a->show_window();
 }
 

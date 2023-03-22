@@ -9,9 +9,9 @@ private:
     static std::vector<std::string> listOfAllergens;
 public:
     Allergen();
-    std::string getAllergens();
+   static std::string getAllergens();
     void addAllergen(std::string);
-    
+    static int getAllergenSize();
     
 };
 

@@ -1,7 +1,6 @@
 #include "addingredientwindow.h"
 #include "./ui_addingredientwindow.h"
 #include <QDebug>
-#include "allergen.h"
 #include <QIntValidator>
 #include "ingredient.h"
 
@@ -14,13 +13,8 @@ addingredientwindow::addingredientwindow(QWidget *parent) :
     ui->plainTextEdit->setFixedHeight(35);
     QWidget* central = new QWidget;
     QVBoxLayout* layout = new QVBoxLayout(central);
-    int size = Allergen::getAllergenSize();
-
-
-    //layout->addWidget()
-    ui->scrollArea->setWidget(central);
-    ui->scrollArea->setWidgetResizable(true);
-
+    
+    ui->scrollArea->setWidget()
 }
 
 

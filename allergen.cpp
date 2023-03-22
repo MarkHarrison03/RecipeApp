@@ -15,3 +15,8 @@ std::string Allergen::getAllergens(){
 void Allergen::addAllergen(std::string name){
     listOfAllergens.push_back(name);
 }
+
+
+int Allergen::getAllergenSize(){
+    return listOfAllergens.size();
+}

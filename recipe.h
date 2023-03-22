@@ -5,6 +5,7 @@
 #include <vector>
 #include <initializer_list>
 #include "ingredient.h"
+#include <QList>
 #include "allergen.h"
 using namespace std;
 
@@ -14,15 +15,14 @@ public:
     string name;
     string category;
     int calories;
-    string dietaryRestriction;
+    string steps;
+    int timeToCook;
+    QList<Ingredient *> listOfIngredients;
 
 
-    Recipe(string, string, string, int);
+    Recipe(string, string, string, int, int, QList<Ingredient *>);
     void addIngredients(std::vector<Ingredient*>);
-
-    void addNutrition(int,int,int,int,int);
     int getCalories(void);
-    string getNutrition(void);
 
 };
 #endif // RECIPE_H

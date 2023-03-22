@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>820</width>
-    <height>481</height>
+    <height>405</height>
    </rect>
   </property>
   <property name="baseSize">
@@ -43,7 +43,7 @@
       <property name="title">
        <string>Add Recipe</string>
       </property>
-      <widget class="QTextEdit" name="textEdit">
+      <widget class="QTextEdit" name="Name">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -63,7 +63,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enter Recipe Name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit">
+      <widget class="QPlainTextEdit" name="Steps">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -82,7 +82,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <string>Enter recipe steps</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="Restrictions">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -159,6 +159,32 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </property>
        <property name="text">
         <string>Tick Ingredients</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="TTC">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>320</y>
+         <width>191</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Time to cook (minutes)</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>350</y>
+         <width>819</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Submit</string>
        </property>
       </widget>
      </widget>

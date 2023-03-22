@@ -6,10 +6,10 @@
 #include "addingredientwindow.h"
 #include "createrecipewindow.h"
 #include <sstream>
+#include <vector>
 
 int counter = 0;
 Allergen allergen;
-CookBook* cookbook = new CookBook();
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -19,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->gridLayout->setSizeConstraint(QLayout::SetMinimumSize);
     ui->label_Ingredient->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum); //NB find out whatws happening here
     ui->label_Ingredient->setWordWrap(true);
-    ui->titleLabel->setText(QString::fromStdString(cookbook->chickenCurry->name));
-    ui->CaloriesLabel->setText("Calories :"  +QString::number(cookbook->chickenCurry->calories));
     std::string str;
     for(const auto &piece : allergen.getAllergens()){
         str += piece;
@@ -38,12 +36,12 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     counter++;
-    if (counter == 3){
+    if (counter > listOfRecipies.size()){
         counter = 0;
     }
-
-    ui->titleLabel->setText(QString::fromStdString(cookbook->recipies[counter]->name));
-    ui->CaloriesLabel->setText("Calories :"  + QString::number(cookbook->recipies[counter]->calories));
+    Recipe* currentRecipe = listOfRecipies.at(counter);
+    ui->titleLabel->setText(QString::fromStdString(currentRecipe->name));
+    ui->CaloriesLabel->setText("Calories :"  + QString::number(currentRecipe->calories));
 
 
 }

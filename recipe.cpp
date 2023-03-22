@@ -6,38 +6,19 @@
 using namespace std;
 
 
-Recipe::Recipe(string name, string category, string dietaryRestriction, int calories){
+Recipe::Recipe(string name, string category, string Steps, int calories, int time, QList<Ingredient *> listOfIngs){
             this->name = name;
             this->category = category;
-            this->dietaryRestriction = dietaryRestriction;
-            this->calories = calories;
+            this->steps = steps;
+            this->timeToCook = time;
+            this->listOfIngredients = listOfIngs;
         };
 
 
 
 
-Food::nutrition a;
+int Recipe::getCalories(){
 
-void addNutrition(int calories, int carbohydrates, int protein, int fat, int sodium){
-
-    a.calories = calories;
-    a.carbohydrates = carbohydrates;
-    a.protein = protein;
-    a.fat = fat;
-    a.sodium = sodium;
-
-};
-int getCalories(){
-
-    return a.calories;
-};
-
-string getNutrition(){
-    string s = "Calories: " + to_string(a.calories);
-    s += "\nCarbohydrates: " + to_string(a.carbohydrates);
-    s += "\nFat: " + to_string(a.fat);
-    s += "\nProtein: " + to_string(a.protein);
-    s += "\nSodium: " + to_string(a.sodium) + "\n";
-    return s;
+    return calories;
 };
 

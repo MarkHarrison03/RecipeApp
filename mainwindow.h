@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "recipe.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -15,6 +15,7 @@ public:
     friend class AddAllergenWindow;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+   static vector<Recipe *> listOfRecipies;
 public slots:
     void updateAllergens();
     void updateIngredients();

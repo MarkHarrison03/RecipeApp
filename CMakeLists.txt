@@ -31,6 +31,9 @@ set(PROJECT_SOURCES
         addingredientwindow.cpp
         addingredientwindow.h
         addingredientwindow.ui
+        createrecipewindow.cpp
+        createrecipewindow.h
+        createrecipewindow.ui
         Food.h
         allergen.cpp
         allergen.h

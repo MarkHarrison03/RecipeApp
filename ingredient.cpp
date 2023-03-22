@@ -19,8 +19,12 @@ std::vector<Ingredient*> Ingredient::getListOfIngredients(){ //static method tha
 
 Ingredient::~Ingredient(){};
 //destructor
+void Ingredient::setIsVegetarian(bool value){
+    isVegetarianBool = value;
+
+}
 bool Ingredient::isVegetarian(){
-    return true;
+    return isVegetarianBool;
 }
 
 void Ingredient::addIngredient(Ingredient* newIng){

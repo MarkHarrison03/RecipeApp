@@ -4,6 +4,7 @@
 #include "CookBook.cpp"
 #include "addallergenwindow.h"
 #include "addingredientwindow.h"
+#include "createrecipewindow.h"
 #include <sstream>
 
 int counter = 0;
@@ -60,7 +61,13 @@ void MainWindow::updateIngredients(){
     std::stringstream ss;
     std::string str;
     for( auto &piece : Ingredient::getListOfIngredients()){
-        ss << "Name: " << piece->getName() << "\n" << "Calories:" << piece->getCalories() << "\n\n";
+        ss << "Name: " << piece->getName() << "\n" << "Calories:" << piece->getCalories() << "\n";
+        if(piece->isVegetarian() == 1){
+        ss << "Is vegetarian? Yes" "\n\n";
+        }else{
+            ss << "Is vegetarian? No" "\n\n";
+
+        }
     }
     str = ss.str();
     ui->label_Ingredient->setText(QString::fromStdString(str));
@@ -100,5 +107,12 @@ void MainWindow::on_actionIngredient_triggered()
     windowIng->show_window();
     qDebug()<<"HEY!";
 
+}
+
+
+void MainWindow::on_actionRecipe_triggered()
+{
+    CreateRecipeWindow* a = new CreateRecipeWindow;
+    a->show_window();
 }
 

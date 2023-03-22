@@ -29,6 +29,8 @@ private slots:
 
     void on_actionIngredient_triggered();
 
+    void on_actionRecipe_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

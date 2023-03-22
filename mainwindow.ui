@@ -71,6 +71,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="VegetarianLabel">
+         <property name="text">
+          <string>Vegetarian? </string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="CaloriesLabel">
          <property name="text">
           <string>Calories</string>
@@ -142,6 +149,7 @@
      </property>
      <addaction name="actionAllergen"/>
      <addaction name="actionIngredient"/>
+     <addaction name="actionRecipe"/>
     </widget>
     <addaction name="separator"/>
     <addaction name="separator"/>
@@ -170,6 +178,11 @@
   <action name="actionIngredient">
    <property name="text">
     <string>Ingredient</string>
+   </property>
+  </action>
+  <action name="actionRecipe">
+   <property name="text">
+    <string>Recipe</string>
    </property>
   </action>
  </widget>

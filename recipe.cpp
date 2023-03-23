@@ -2,6 +2,8 @@
 #include <string>
 #include <initializer_list>
 #include <type_traits>
+#include "./ui_mainwindow.h"
+
 #include <vector>
 using namespace std;
 
@@ -16,7 +18,6 @@ Recipe::Recipe(string name, string category, string Steps, int calories, int tim
             this->allergens = allergens;
             this->isVegetarianBool = isVegetarian;
         };
-
 
 
 

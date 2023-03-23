@@ -18,6 +18,10 @@ public:
     void show_window();
 private slots:
     void on_pushButton_clicked();
+    void on_TimeToCook_sliderMoved(int position);
+
+    void on_TimeToCook_actionTriggered(int action);
+
 signals:
     void recipeAdded(Recipe*);
 

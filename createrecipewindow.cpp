@@ -12,7 +12,6 @@ CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     Ingredient a;
-    ui->TTC->setValidator(new QIntValidator(0,10000, this));
     QWidget *container = new QWidget;
     QVBoxLayout * layout = new QVBoxLayout(container);
     ui->scrollArea->setWidget(container);
@@ -50,7 +49,7 @@ void CreateRecipeWindow::on_pushButton_clicked()
     std::string name = stringName.toStdString();
     QString steps(ui->Steps->toPlainText());
     std::string stepsString = steps.toStdString();
-    QString TTC(ui->TTC->text());
+    QString TTC(ui->TimeToCookLabel->text());
     int ttcInt = TTC.toInt();
     QList<Ingredient *> ingredients;
     QList<QCheckBox *> checkboxes = ui->scrollArea->findChildren<QCheckBox *>();
@@ -83,5 +82,12 @@ void CreateRecipeWindow::on_pushButton_clicked()
     Recipe* newRecipe = new Recipe(name, category, stepsString, ttcInt, ingredients, listOfAllergensString.toStdString(), vegetarian);
     emit recipeAdded(newRecipe);
     hide();
+}
+
+
+void CreateRecipeWindow::on_TimeToCook_sliderMoved(int position)
+{
+    QString num = QString::number(ui->TimeToCook->value()) ;
+    ui->TimeToCookLabel->setText(num);
 }
 

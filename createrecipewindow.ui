@@ -187,19 +187,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <string>Tick Ingredients</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="TTC">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>320</y>
-         <width>191</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Time to cook (minutes)</string>
-       </property>
-      </widget>
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
@@ -265,7 +252,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <widget class="QComboBox" name="Category">
        <property name="geometry">
         <rect>
-         <x>480</x>
+         <x>610</x>
          <y>320</y>
          <width>181</width>
          <height>28</height>
@@ -296,6 +283,48 @@ li.checked::marker { content: &quot;\2612&quot;; }
          <string>Dessert</string>
         </property>
        </item>
+      </widget>
+      <widget class="QSlider" name="TimeToCook">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>320</y>
+         <width>271</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>300</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="TimeToCookLabel">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>330</y>
+         <width>63</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Time</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="TimeToCookLabel_2">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>330</y>
+         <width>63</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Minutes</string>
+       </property>
       </widget>
      </widget>
     </item>

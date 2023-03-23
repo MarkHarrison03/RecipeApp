@@ -22,7 +22,11 @@ Recipe::Recipe(string name, string category, string Steps, int calories, int tim
 
 
 int Recipe::getCalories(){
-
+    //overriding virtual function
+    int calories = 0;
+    for(Ingredient * i : listOfIngredients){
+        calories += i->getCalories();
+    }
     return calories;
 };
 

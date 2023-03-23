@@ -49,13 +49,12 @@ void operator<< (Ui::MainWindow a, Recipe* b){
     a.DietLabel->setText("Dietary Restriction : " + QString::fromStdString(b->isVegetarian()));
     a.CategoryLabel->setText("Category : " + QString::fromStdString(b->category));
     a.TTCLabel->setText("Time to Cook (minutes) : " +QString::number(b->timeToCook));
-    a.CaloriesLabel->setText("Calories :"  + QString::number(b->calories));
-    qDebug() << "HOLY MOLY!!";
+    a.CaloriesLabel->setText("Calories :"  + QString::number(b->getCalories())); //overridden virtual function
     std::string ingList;
     for(Ingredient* i : b->listOfIngredients){
         ingList += i->getName();
         ingList += "\nCalories: ";
-        ingList += std::to_string(i->getCalories());
+        ingList += std::to_string(i->getCalories()); //this getCalories is a virtual function that is overrideen by its derived class 5 lines up
         ingList += "\n\n";
     }
 

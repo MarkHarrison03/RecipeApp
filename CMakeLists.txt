@@ -18,11 +18,7 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         recipe.h
-        recipe.cpp
-        CookBook.cpp
-        Food.cpp
-        meat.h
-        meat.cpp
+        recipe.cpp       
         ingredient.h
         ingredient.cpp
         addallergenwindow.cpp
@@ -34,7 +30,6 @@ set(PROJECT_SOURCES
         createrecipewindow.cpp
         createrecipewindow.h
         createrecipewindow.ui
-        Food.h
         allergen.cpp
         allergen.h
     )

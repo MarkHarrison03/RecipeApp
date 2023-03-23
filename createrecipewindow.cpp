@@ -54,6 +54,7 @@ void CreateRecipeWindow::on_pushButton_clicked()
     QList<Ingredient *> ingredients;
     QList<QCheckBox *> checkboxes = ui->scrollArea->findChildren<QCheckBox *>();
     int cals = 0;
+
     for(QCheckBox * box : checkboxes){
         if(box->isChecked()){
             std::string ingName = box->text().toStdString();
@@ -79,7 +80,8 @@ void CreateRecipeWindow::on_pushButton_clicked()
     if(restriction.compare("Vegetarian")){
         vegetarian = true;
     }
-    Recipe* newRecipe = new Recipe(name, "Breakfast", stepsString, cals, ttcInt, ingredients, listOfAllergensString.toStdString(), vegetarian);
+    std::string category = ui->Category->currentText().toStdString();
+    Recipe* newRecipe = new Recipe(name, category, stepsString, cals, ttcInt, ingredients, listOfAllergensString.toStdString(), vegetarian);
     emit recipeAdded(newRecipe);
     qDebug()<< "Hello";
     hide();

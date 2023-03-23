@@ -12,14 +12,16 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
- //   static vector<Recipe *> listOfRecipies;
+    //static vector<Recipe *> listOfRecipies;
 
     friend class AddAllergenWindow;
+    friend class deleterecipewindow;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 public slots:
     void updateAllergens();
     void updateIngredients();
+    std::vector<Recipe*>getListOfRecipies();
     void updateRecipies(Recipe *);
 private slots:
     void on_pushButton_clicked();

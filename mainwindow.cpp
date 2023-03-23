@@ -87,8 +87,9 @@ void MainWindow::on_pushButton_2_clicked()
 {
     counter--;
     if (counter <= -1){
+        counter = listOfRecipies.size() - 1;
+
         qDebug() << "Pushbutton2 counter:" << counter;
-        counter = listOfRecipies.size();
     }
     Recipe* currentRecipe = listOfRecipies.at(counter);
     ui->titleLabel->setText(QString::fromStdString(currentRecipe->name));

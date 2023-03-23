@@ -45,13 +45,6 @@
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>IMAGE</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </item>
      <item row="2" column="0">
@@ -59,21 +52,21 @@
        <item>
         <widget class="QLabel" name="DietLabel">
          <property name="text">
-          <string>Dietary</string>
+          <string>Dietary Restriction:</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="AllergiesLabel">
          <property name="text">
-          <string>Allergies</string>
+          <string>Allergies:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="VegetarianLabel">
+        <widget class="QLabel" name="CategoryLabel">
          <property name="text">
-          <string>Vegetarian? </string>
+          <string>Category:</string>
          </property>
         </widget>
        </item>

@@ -22,6 +22,17 @@ CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
         QCheckBox* checkBox = new QCheckBox(QString::fromStdString(piece->getName()));
         layout->addWidget(checkBox);
     }
+    QWidget *containerAllergens = new QWidget;
+    QVBoxLayout * layoutAllergens = new QVBoxLayout(containerAllergens);
+    ui->scrollArea_2->setWidget(containerAllergens);
+    ui->scrollArea_2->setWidgetResizable(true);
+
+    for(std::string all : Allergen::getAllergensAsList()){
+        qDebug() << QString::fromStdString(all);
+
+        QCheckBox* checkBoxAllergen = new QCheckBox(QString::fromStdString(all));
+        layoutAllergens->addWidget(checkBoxAllergen);
+    }
 
 }
 
@@ -54,7 +65,21 @@ void CreateRecipeWindow::on_pushButton_clicked()
             }
         }
     }
-    Recipe* newRecipe = new Recipe(name, "Breakfast", stepsString, cals, ttcInt, ingredients);
+    QString listOfAllergensString = "";
+    QList<QCheckBox *>   checkboxAllergen = ui->scrollArea_2->findChildren<QCheckBox *>();
+    for(QCheckBox * box: checkboxAllergen){
+        if(box->isChecked()){
+            listOfAllergensString += box->text();
+            listOfAllergensString += " \n";
+        }
+    }
+    qDebug() << cals << " H Fioawjpwo";
+    QString restriction = ui->Restrictions->currentText();
+    bool vegetarian = false;
+    if(restriction.compare("Vegetarian")){
+        vegetarian = true;
+    }
+    Recipe* newRecipe = new Recipe(name, "Breakfast", stepsString, cals, ttcInt, ingredients, listOfAllergensString.toStdString(), vegetarian);
     emit recipeAdded(newRecipe);
     qDebug()<< "Hello";
     hide();

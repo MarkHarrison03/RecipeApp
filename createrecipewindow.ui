@@ -93,22 +93,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </property>
        <item>
         <property name="text">
-         <string>Vegetarian</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Vegan</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Pescatarian</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
          <string>Normal Person Food</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Vegetarian</string>
         </property>
        </item>
       </widget>
@@ -117,7 +107,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <rect>
          <x>460</x>
          <y>50</y>
-         <width>311</width>
+         <width>121</width>
          <height>271</height>
         </rect>
        </property>
@@ -129,7 +119,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>309</width>
+          <width>119</width>
           <height>269</height>
          </rect>
         </property>
@@ -185,6 +175,55 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </property>
        <property name="text">
         <string>Submit</string>
+       </property>
+      </widget>
+      <widget class="QScrollArea" name="scrollArea_2">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>50</y>
+         <width>121</width>
+         <height>271</height>
+        </rect>
+       </property>
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaWidgetContents_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>119</width>
+          <height>269</height>
+         </rect>
+        </property>
+        <widget class="QCheckBox" name="checkBox_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>93</width>
+           <height>26</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>CheckBox</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>30</y>
+         <width>181</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Tick Allergens</string>
        </property>
       </widget>
      </widget>

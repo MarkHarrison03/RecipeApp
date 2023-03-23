@@ -20,3 +20,7 @@ void Allergen::addAllergen(std::string name){
 int Allergen::getAllergenSize(){
     return listOfAllergens.size();
 }
+
+std::vector<std::string> Allergen::getAllergensAsList(){
+    return listOfAllergens;
+}

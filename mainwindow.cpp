@@ -14,9 +14,10 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    Ingredient* a = new Ingredient("chicken", 400);
+    //blank recipe just to initialize vector;
+    Ingredient* a = new Ingredient("Sample Ingredient", 400);
     QList<Ingredient*> ingList{a};
-    Recipe* baseRecipe = new Recipe("Chicken Curry and Rice", "Dinner", "Cook", 400, 20, ingList);
+    Recipe* baseRecipe = new Recipe("Create a recipe to begin", "N/A", "N/A", 0, 0, ingList, "N/A", false);
     listOfRecipies.push_back(baseRecipe);
 
     ui->setupUi(this);
@@ -28,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
         str += piece;
     }
     ui->label_Ingredients->setText(QString::fromStdString( str ));
+    MainWindow::on_pushButton_clicked();
 
 };
 
@@ -47,7 +49,12 @@ void MainWindow::on_pushButton_clicked()
     }
     Recipe* currentRecipe = listOfRecipies.at(counter);
     ui->titleLabel->setText(QString::fromStdString(currentRecipe->name));
+    ui->AllergiesLabel->setText("Allergens : " + QString::fromStdString(currentRecipe->allergens));
+    ui->DietLabel->setText("Dietary Restriction : " + QString::fromStdString(currentRecipe->isVegetarian()));
+    ui->CategoryLabel->setText("Category : " + QString::fromStdString(currentRecipe->category));
+    ui->TTCLabel->setText("Time to Cook (minutes) : " +QString::number(currentRecipe->timeToCook));
     ui->CaloriesLabel->setText("Calories :"  + QString::number(currentRecipe->calories));
+
 
 
 }

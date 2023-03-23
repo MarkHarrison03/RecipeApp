@@ -12,6 +12,7 @@ public:
    static std::string getAllergens();
     void addAllergen(std::string);
     static int getAllergenSize();
+    static std::vector<std::string> getAllergensAsList();
     
 };
 

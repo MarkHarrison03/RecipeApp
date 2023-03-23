@@ -19,8 +19,6 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 public slots:
-    void updateAllergens();
-    void updateIngredients();
     std::vector<Recipe*>getListOfRecipies();
     void updateRecipies(Recipe *);
 private slots:

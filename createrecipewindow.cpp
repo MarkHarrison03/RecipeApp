@@ -5,6 +5,7 @@
 #include "mainwindow.h"
 #include <QValidator>
 #include "recipe.h"
+#include "allergen.h"
 CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CreateRecipeWindow)
@@ -27,10 +28,10 @@ CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
     ui->scrollArea_2->setWidget(containerAllergens);
     ui->scrollArea_2->setWidgetResizable(true);
 
-    for(std::string all : Allergen::getAllergensAsList()){
-        qDebug() << QString::fromStdString(all);
+    for(Allergen* a : Allergen::getAllergensAsList()){
 
-        QCheckBox* checkBoxAllergen = new QCheckBox(QString::fromStdString(all));
+
+        QCheckBox* checkBoxAllergen = new QCheckBox(QString::fromStdString(a->getName()));
         layoutAllergens->addWidget(checkBoxAllergen);
     }
 
@@ -53,7 +54,6 @@ void CreateRecipeWindow::on_pushButton_clicked()
     int ttcInt = TTC.toInt();
     QList<Ingredient *> ingredients;
     QList<QCheckBox *> checkboxes = ui->scrollArea->findChildren<QCheckBox *>();
-    int cals = 0;
 
     for(QCheckBox * box : checkboxes){
         if(box->isChecked()){
@@ -61,11 +61,11 @@ void CreateRecipeWindow::on_pushButton_clicked()
             for(Ingredient * a : Ingredient::getListOfIngredients()){
                 if(a->getName() == ingName){
                     ingredients.append(a);
-                    cals += a->getCalories();
                 }
             }
         }
     }
+
     QString listOfAllergensString = "";
     QList<QCheckBox *>   checkboxAllergen = ui->scrollArea_2->findChildren<QCheckBox *>();
     for(QCheckBox * box: checkboxAllergen){
@@ -74,16 +74,14 @@ void CreateRecipeWindow::on_pushButton_clicked()
             listOfAllergensString += " \n";
         }
     }
-    qDebug() << cals << " H Fioawjpwo";
     QString restriction = ui->Restrictions->currentText();
     bool vegetarian = false;
     if(restriction.compare("Vegetarian")){
         vegetarian = true;
     }
     std::string category = ui->Category->currentText().toStdString();
-    Recipe* newRecipe = new Recipe(name, category, stepsString, cals, ttcInt, ingredients, listOfAllergensString.toStdString(), vegetarian);
+    Recipe* newRecipe = new Recipe(name, category, stepsString, ttcInt, ingredients, listOfAllergensString.toStdString(), vegetarian);
     emit recipeAdded(newRecipe);
-    qDebug()<< "Hello";
     hide();
 }
 

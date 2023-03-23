@@ -5,25 +5,27 @@
 #include <initializer_list>
 #include "ingredient.h"
 #include <QList>
-#include "allergen.h"
+#include "basefooditem.h"
 using namespace std;
 
-class Recipe : public Ingredient, public Allergen
+//multiple inheritance
+class Recipe : public Ingredient, public BaseFoodItem
 {
+
 public:
     string name;
     string category;
-    int calories;
     string steps;
     int timeToCook;
     string allergens;
     QList<Ingredient *> listOfIngredients;
 
 
-    Recipe(string, string, string, int, int, QList<Ingredient *>, string, bool);
+    Recipe(string, string, string, int, QList<Ingredient *>, string, bool);
     void addIngredients(std::vector<Ingredient*>);
-    int getCalories(void);
-    std::string isVegetarian();
+    int getCalories() override;
+    string getName() override;
+    bool isVegetarian() override;
 
 };
 #endif // RECIPE_H

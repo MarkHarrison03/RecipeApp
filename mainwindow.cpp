@@ -6,9 +6,9 @@
 #include "createrecipewindow.h"
 #include <sstream>
 #include <vector>
+#include "allergen.h"
 int counter = 0;
 std::vector<Recipe*> listOfRecipies;
-Allergen allergen;
 bool baseRecipeRemoved = false;
 void operator<<(Ui::MainWindow, Recipe*);
 MainWindow::MainWindow(QWidget *parent)
@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     //blank recipe just to initialize vector;
     Ingredient* a = new Ingredient("Sample Ingredient", 0);
     QList<Ingredient*> ingList{a};
-    Recipe* baseRecipe = new Recipe("Create a recipe to begin", "N/A", "N/A", 0, 0, ingList, "N/A", false);
+    Recipe* baseRecipe = new Recipe("Create a recipe to begin", "N/A", "N/A", 0, ingList, "N/A", false);
     listOfRecipies.push_back(baseRecipe);
 
     ui->setupUi(this);
@@ -46,7 +46,13 @@ MainWindow::~MainWindow()
 void operator<< (Ui::MainWindow a, Recipe* b){
     a.titleLabel->setText(QString::fromStdString(b->name));
     a.AllergiesLabel->setText("Allergens : " + QString::fromStdString(b->allergens));
-    a.DietLabel->setText("Dietary Restriction : " + QString::fromStdString(b->isVegetarian()));
+    std::string veggie = "";
+    if(QString::number(b->isVegetarian()) == '1'){
+        veggie = "Vegetarian";
+    }else{
+        veggie = "No Dietary Restriction";
+    }
+    a.DietLabel->setText("Dietary Restriction : " + QString::fromStdString(veggie));
     a.CategoryLabel->setText("Category : " + QString::fromStdString(b->category));
     a.TTCLabel->setText("Time to Cook (minutes) : " +QString::number(b->timeToCook));
     a.CaloriesLabel->setText("Calories :"  + QString::number(b->getCalories())); //overridden virtual function
@@ -87,15 +93,15 @@ void MainWindow::on_pushButton_clicked()
 
 }
 
-void MainWindow::updateAllergens(){
+//void MainWindow::updateAllergens(){
 
-        std::string str;
-        for(const auto &piece : allergen.getAllergens()){
-            str += piece;
-        }
-        ui->label_Ingredients->setText(QString::fromStdString( str ));
+//        std::string str;
+//        for(const auto &piece : allergen.getAllergens()){
+//            str += piece;
+//        }
+//        ui->label_Ingredients->setText(QString::fromStdString( str ));
 
-}
+//}
 std::vector<Recipe*> MainWindow::getListOfRecipies(){
     return listOfRecipies;
 }
@@ -108,22 +114,22 @@ void MainWindow::updateRecipies(Recipe* a){
     listOfRecipies.push_back(a);
     qDebug() << QString::fromStdString(listOfRecipies.at(0)->name);
 }
-void MainWindow::updateIngredients(){
+//void MainWindow::updateIngredients(){
 
-    std::stringstream ss;
-    std::string str;
-    for( auto &piece : Ingredient::getListOfIngredients()){
-        ss << "Name: " << piece->getName() << "\n" << "Calories:" << piece->getCalories() << "\n";
-        if(piece->isVegetarian() == 1){
-        ss << "Is vegetarian? Yes" "\n\n";
-        }else{
-            ss << "Is vegetarian? No" "\n\n";
+//    std::stringstream ss;
+//    std::string str;
+//    for( auto &piece : Ingredient::getListOfIngredients()){
+//        ss << "Name: " << piece->getName() << "\n" << "Calories:" << piece->getCalories() << "\n";
+//        if(piece->isVegetarian() == 1){
+//        ss << "Is vegetarian? Yes" "\n\n";
+//        }else{
+//            ss << "Is vegetarian? No" "\n\n";
 
-        }
-    }
-    str = ss.str();
-    ui->label_Ingredients->setText(QString::fromStdString(str));
-}
+//        }
+//    }
+//    str = ss.str();
+//    ui->label_Ingredients->setText(QString::fromStdString(str));
+//}
 
 void MainWindow::on_pushButton_2_clicked()
 {

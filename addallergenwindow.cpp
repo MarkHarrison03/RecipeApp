@@ -30,8 +30,15 @@ void AddAllergenWindow::on_pushButton_clicked()
     QString text = ui->plainTextEdit->toPlainText();
 
     if((QString::compare(text, "Enter Allergen Name", Qt::CaseInsensitive) != 0)){
-        Allergen allergen;
-        allergen.addAllergen(text.toStdString());
+
+        bool vegetarian;
+        if(ui->comboBox->currentText() == "Vegetarian"){
+            vegetarian = true;
+        }else{
+            vegetarian = false;
+        }
+        Allergen *newAllergen = new Allergen(text.toStdString(), vegetarian);
+        Allergen::addAllergen(newAllergen);
         emit allergensUpdated();
         qDebug("Hello!");
 

@@ -30,6 +30,7 @@ set(PROJECT_SOURCES
         createrecipewindow.cpp
         createrecipewindow.h
         createrecipewindow.ui
+        basefooditem.h
         allergen.cpp
         allergen.h
     )

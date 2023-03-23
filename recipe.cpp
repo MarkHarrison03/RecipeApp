@@ -8,11 +8,11 @@
 using namespace std;
 
 
-Recipe::Recipe(string name, string category, string Steps, int calories, int time, QList<Ingredient *> listOfIngs, string allergens, bool isVegetarian){
+Recipe::Recipe(string name, string category, string Steps, int time, QList<Ingredient *> listOfIngs, string allergens, bool isVegetarian){
             this->name = name;
             this->category = category;
             this->steps = Steps;
-            this->calories = calories;
+
             this->timeToCook = time;
             this->listOfIngredients = listOfIngs;
             this->allergens = allergens;
@@ -30,10 +30,14 @@ int Recipe::getCalories(){
     return calories;
 };
 
-std::string Recipe::isVegetarian(){
+bool Recipe::isVegetarian(){
     if(isVegetarianBool){
-        return "Vegetarian";
+        return true;
     }else{
-        return "No Dietary Restriction";
+        return false;
     }
+}
+
+string Recipe::getName(){
+    return name;
 }

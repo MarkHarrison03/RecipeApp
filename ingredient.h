@@ -6,13 +6,13 @@
 class Ingredient
 {
 public:
-    virtual ~Ingredient();
+     ~Ingredient();
     Ingredient();
     bool isVegetarianBool;
     Ingredient(std::string name, int calories);
     Ingredient(Ingredient& copyIngredient);
     inline std::string getName(){return name;};
-    inline int getCalories(){return calories;};
+    virtual inline int getCalories(){return calories;};
     bool isVegetarian();
     static std::vector<Ingredient*> getListOfIngredients();
     static void addIngredient(Ingredient*);

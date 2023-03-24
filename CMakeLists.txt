@@ -19,18 +19,23 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         recipe.h
-        recipe.cpp       
+        recipe.cpp
+        IncorrectInputException.cpp
         ingredient.h
         ingredient.cpp
         global.h
         credits.h
         credits.cpp
+        incorrectinputexceptionwindow.h
+        incorrectinputexceptionwindow.cpp
+        incorrectinputexceptionwindow.ui
         credits.ui
         image.qrc
         addallergenwindow.cpp
         addallergenwindow.h
         addallergenwindow.ui
         addingredientwindow.cpp
+        IncorrectInputException.h
         addingredientwindow.h
         addingredientwindow.ui
         createrecipewindow.cpp

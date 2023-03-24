@@ -3,6 +3,7 @@
 #include "ingredient.h"
 #include <QDebug>
 #include "mainwindow.h"
+#include "IncorrectInputException.h"
 #include "global.h"
 #include <QValidator>
 #include "recipe.h"
@@ -51,6 +52,15 @@ void CreateRecipeWindow::on_pushButton_clicked()
 {
     QString stringName(ui->Name->toPlainText());
     std::string name = stringName.toStdString();
+   try{
+        qDebug() << stringName.compare("Enter Recipe Name");
+        if(stringName.compare("Enter Recipe Name") == 0){
+            throw IncorrectInputException();
+        }
+    }catch(IncorrectInputException e){
+        qDebug() << QString::fromStdString(e.what());
+
+    }
     QString steps(ui->Steps->toPlainText());
     std::string stepsString = steps.toStdString();
     QString TTC(ui->TimeToCookLabel->text());

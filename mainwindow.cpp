@@ -7,9 +7,9 @@
 #include <sstream>
 #include <vector>
 #include "allergen.h"
+#include "global.h"
 int counter = 0;
-
-std::vector<Recipe*> listOfRecipies;
+std::vector<Recipe*> listOfRecipies{};
 bool baseRecipeRemoved = false;
 void operator<<(Ui::MainWindow, Recipe*);
 

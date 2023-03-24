@@ -21,6 +21,7 @@ set(PROJECT_SOURCES
         recipe.cpp       
         ingredient.h
         ingredient.cpp
+        global.h
         addallergenwindow.cpp
         addallergenwindow.h
         addallergenwindow.ui

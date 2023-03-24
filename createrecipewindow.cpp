@@ -3,6 +3,7 @@
 #include "ingredient.h"
 #include <QDebug>
 #include "mainwindow.h"
+#include "global.h"
 #include <QValidator>
 #include "recipe.h"
 #include "allergen.h"
@@ -15,6 +16,7 @@ CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
     ui->setupUi(this);
     Ingredient a;
     QWidget *container = new QWidget;
+
     QVBoxLayout * layout = new QVBoxLayout(container);
     ui->scrollArea->setWidget(container);
     ui->scrollArea->setWidgetResizable(true);
@@ -43,6 +45,7 @@ CreateRecipeWindow::~CreateRecipeWindow(){};
 
 void CreateRecipeWindow::show_window(){
     show();
+
 }
 void CreateRecipeWindow::on_pushButton_clicked()
 {
@@ -81,7 +84,8 @@ void CreateRecipeWindow::on_pushButton_clicked()
     }
     std::string category = ui->Category->currentText().toStdString();
     Recipe* newRecipe = new Recipe(name, category, stepsString, ttcInt, ingredients, listOfAllergensString.toStdString(), vegetarian);
-    emit recipeAdded(newRecipe);
+   listOfRecipies.push_back(newRecipe);
+    //emit recipeAdded(newRecipe);
     hide();
 }
 

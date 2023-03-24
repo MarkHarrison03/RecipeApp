@@ -18,12 +18,14 @@ public:
     friend class deleterecipewindow;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-public slots:
     std::vector<Recipe*>getListOfRecipies();
+public slots:
+
+
     void updateRecipies(Recipe *);
+
 private slots:
     void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
 
     void on_actionAllergen_triggered();

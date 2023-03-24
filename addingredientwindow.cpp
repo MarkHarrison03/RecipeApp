@@ -5,6 +5,7 @@
 #include <QIntValidator>
 #include "ingredient.h"
 #include <QButtonGroup>
+using namespace staticAllergens;
 
 addingredientwindow::addingredientwindow(QWidget *parent) :
     QDialog(parent),
@@ -15,7 +16,6 @@ addingredientwindow::addingredientwindow(QWidget *parent) :
     ui->plainTextEdit->setFixedHeight(35);
     QWidget* central = new QWidget;
     QVBoxLayout* layout = new QVBoxLayout(central);
-    int size = Allergen::getAllergenSize();
 
 
 

@@ -4,7 +4,7 @@
 #include <QString>
 #include "allergen.h"
 #include "./ui_addallergenwindow.h"
-
+using namespace staticAllergens;
 AddAllergenWindow::AddAllergenWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddAllergenWindow)
@@ -38,7 +38,7 @@ void AddAllergenWindow::on_pushButton_clicked()
             vegetarian = false;
         }
         Allergen *newAllergen = new Allergen(text.toStdString(), vegetarian);
-        Allergen::addAllergen(newAllergen);
+        addAllergen(newAllergen);
         emit allergensUpdated();
         qDebug("Hello!");
 

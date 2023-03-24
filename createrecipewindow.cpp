@@ -6,6 +6,8 @@
 #include <QValidator>
 #include "recipe.h"
 #include "allergen.h"
+
+using namespace staticAllergens;
 CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CreateRecipeWindow)
@@ -27,7 +29,7 @@ CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
     ui->scrollArea_2->setWidget(containerAllergens);
     ui->scrollArea_2->setWidgetResizable(true);
 
-    for(Allergen* a : Allergen::getAllergensAsList()){
+    for(Allergen* a : Allergen::getListOfAllergens()){
 
 
         QCheckBox* checkBoxAllergen = new QCheckBox(QString::fromStdString(a->getName()));
@@ -42,7 +44,6 @@ CreateRecipeWindow::~CreateRecipeWindow(){};
 void CreateRecipeWindow::show_window(){
     show();
 }
-
 void CreateRecipeWindow::on_pushButton_clicked()
 {
     QString stringName(ui->Name->toPlainText());
@@ -70,7 +71,7 @@ void CreateRecipeWindow::on_pushButton_clicked()
     for(QCheckBox * box: checkboxAllergen){
         if(box->isChecked()){
             listOfAllergensString += box->text();
-            listOfAllergensString += " \n";
+            listOfAllergensString += " ";
         }
     }
     QString restriction = ui->Restrictions->currentText();

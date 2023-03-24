@@ -8,9 +8,11 @@
 #include <vector>
 #include "allergen.h"
 int counter = 0;
+
 std::vector<Recipe*> listOfRecipies;
 bool baseRecipeRemoved = false;
 void operator<<(Ui::MainWindow, Recipe*);
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -46,6 +48,7 @@ MainWindow::~MainWindow()
 void operator<< (Ui::MainWindow a, Recipe* b){
     a.titleLabel->setText(QString::fromStdString(b->name));
     a.AllergiesLabel->setText("Allergens : " + QString::fromStdString(b->allergens));
+
     std::string veggie = "";
     if(QString::number(b->isVegetarian()) == '1'){
         veggie = "Vegetarian";
@@ -105,6 +108,9 @@ void MainWindow::on_pushButton_clicked()
 std::vector<Recipe*> MainWindow::getListOfRecipies(){
     return listOfRecipies;
 }
+
+
+
 void MainWindow::updateRecipies(Recipe* a){
     if(baseRecipeRemoved == false){
         listOfRecipies.erase(listOfRecipies.begin());
@@ -130,7 +136,6 @@ void MainWindow::updateRecipies(Recipe* a){
 //    str = ss.str();
 //    ui->label_Ingredients->setText(QString::fromStdString(str));
 //}
-
 void MainWindow::on_pushButton_2_clicked()
 {
     counter--;

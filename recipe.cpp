@@ -7,17 +7,16 @@
 #include <vector>
 using namespace std;
 
-
-Recipe::Recipe(string name, string category, string Steps, int time, QList<Ingredient *> listOfIngs, string allergens, bool isVegetarian){
+Recipe::Recipe(string name, string category, string Steps, int time, QList<Ingredient* > listOfIngs, string allergens, bool isVegetarian){
             this->name = name;
             this->category = category;
             this->steps = Steps;
-
             this->timeToCook = time;
             this->listOfIngredients = listOfIngs;
             this->allergens = allergens;
             this->isVegetarianBool = isVegetarian;
         };
+
 
 
 
@@ -29,6 +28,7 @@ int Recipe::getCalories(){
     }
     return calories;
 };
+
 
 bool Recipe::isVegetarian(){
     if(isVegetarianBool){

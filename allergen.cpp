@@ -1,6 +1,7 @@
 #include "allergen.h"
 #include <sstream>
 #include <vector>
+
 Allergen *a = new Allergen("Milk",true);
 Allergen *b = new Allergen("Eggs",true);
 Allergen *c = new Allergen("Fish",false);
@@ -20,24 +21,9 @@ Allergen::Allergen(std::string name, bool vegetarian){
     this->isVegetarianBool = vegetarian;
 };
 
-std::string Allergen::getAllergens(){
-    std::stringstream s;
-    for(Allergen* a: listOfAllergens){
-        s << a->getName() << " " ;
-    }
-
-    return s.str();
-}
-void Allergen::addAllergen(Allergen* a){
-    listOfAllergens.push_back(a);
-}
 
 
-int Allergen::getAllergenSize(){
-    return listOfAllergens.size();
-}
-
-std::vector<Allergen*> Allergen::getAllergensAsList(){
+std::vector<Allergen*> Allergen::getListOfAllergens(){
     return listOfAllergens;
 }
 std::string Allergen::getName(){

@@ -9,19 +9,22 @@
 using namespace std;
 
 //multiple inheritance
+
 class Recipe : public Ingredient, public BaseFoodItem
 {
 
 public:
+
     string name;
     string category;
     string steps;
     int timeToCook;
     string allergens;
+
     QList<Ingredient *> listOfIngredients;
 
 
-    Recipe(string, string, string, int, QList<Ingredient *>, string, bool);
+    Recipe(string, string, string, int, QList<Ingredient*>, string, bool);
     void addIngredients(std::vector<Ingredient*>);
     int getCalories() override;
     string getName() override;

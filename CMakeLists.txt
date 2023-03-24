@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
@@ -22,6 +23,10 @@ set(PROJECT_SOURCES
         ingredient.h
         ingredient.cpp
         global.h
+        credits.h
+        credits.cpp
+        credits.ui
+        image.qrc
         addallergenwindow.cpp
         addallergenwindow.h
         addallergenwindow.ui

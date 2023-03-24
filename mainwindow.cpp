@@ -6,6 +6,7 @@
 #include "createrecipewindow.h"
 #include <sstream>
 #include <vector>
+#include "credits.h"
 #include "allergen.h"
 #include "global.h"
 int counter = 0;
@@ -189,4 +190,12 @@ void MainWindow::on_actionRecipe_triggered()
 }
 
 
+
+
+void MainWindow::on_actionCredits_triggered()
+{
+    Credits *a = new Credits;
+    a->show();
+
+}
 

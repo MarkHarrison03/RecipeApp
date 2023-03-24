@@ -180,6 +180,7 @@
     <property name="title">
      <string>About</string>
     </property>
+    <addaction name="actionCredits"/>
    </widget>
    <addaction name="menuNew_Recipe"/>
    <addaction name="menuAbout"/>
@@ -203,6 +204,11 @@
   <action name="actionRecipe">
    <property name="text">
     <string>Recipe</string>
+   </property>
+  </action>
+  <action name="actionCredits">
+   <property name="text">
+    <string>Credits</string>
    </property>
   </action>
  </widget>

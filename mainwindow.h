@@ -37,6 +37,8 @@ private slots:
 
     void on_actionRecipe_triggered();
 
+    void on_actionCredits_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

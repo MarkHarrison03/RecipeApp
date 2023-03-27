@@ -44,6 +44,9 @@ set(PROJECT_SOURCES
         basefooditem.h
         allergen.cpp
         allergen.h
+        modifyrecipewindow.cpp
+        modifyrecipewindow.h
+        modifyrecipewindow.ui
     )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

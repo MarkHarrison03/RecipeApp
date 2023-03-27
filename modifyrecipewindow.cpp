@@ -1,53 +1,72 @@
-#include "createrecipewindow.h"
-#include "ui_createrecipewindow.h"
-#include "ingredient.h"
-#include <QDebug>
-#include "IncorrectInputException.h"
-#include "global.h"
-#include <QValidator>
-#include "recipe.h"
+#include "modifyrecipewindow.h"
+#include "ui_modifyrecipewindow.h"
 #include "allergen.h"
-
-using namespace staticAllergens;
-CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
+#include "IncorrectInputException.h"
+#include <algorithm>
+ModifyRecipeWindow::ModifyRecipeWindow(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::CreateRecipeWindow)
+    ui(new Ui::ModifyRecipeWindow)
 {
     ui->setupUi(this);
-    Ingredient a;
-    QWidget *container = new QWidget;
 
+}
+
+ModifyRecipeWindow::~ModifyRecipeWindow()
+{
+    delete ui;
+}
+
+
+void ModifyRecipeWindow::setup(Recipe* a){
+    show();
+    ui->Name->setText(QString::fromStdString(a->name));
+    ui->Category->setCurrentText(QString::fromStdString(a->category));
+    ui->Steps->setPlainText(QString::fromStdString(a->steps));
+
+    QWidget *container = new QWidget;
     QVBoxLayout * layout = new QVBoxLayout(container);
+
     ui->scrollArea->setWidget(container);
     ui->scrollArea->setWidgetResizable(true);
 
     for(Ingredient* piece : Ingredient::getListOfIngredients()){
         qDebug() << QString::fromStdString(piece->getName());
         QCheckBox* checkBox = new QCheckBox(QString::fromStdString(piece->getName()));
-        layout->addWidget(checkBox);
+        for(Ingredient * i : a->getListOfIngredients()){
+            qDebug() << QString::fromStdString(i->getName()) << "FAUWONIFWA";
+            if(QString::fromStdString(i->getName()).compare( checkBox->text()) == 0){
+                checkBox->setChecked(true);
+            }
+        }
+       layout->addWidget(checkBox);
     }
+
     QWidget *containerAllergens = new QWidget;
     QVBoxLayout * layoutAllergens = new QVBoxLayout(containerAllergens);
     ui->scrollArea_2->setWidget(containerAllergens);
     ui->scrollArea_2->setWidgetResizable(true);
+    std::vector<std::string> allergenVector;
+    std::stringstream stream(a->allergens);
+    std::string currentString;
+    while(std::getline(stream, currentString, ' ')){
+        allergenVector.push_back(currentString);
+    }
+    for(Allergen* al : Allergen::getListOfAllergens()){
 
-    for(Allergen* a : Allergen::getListOfAllergens()){
 
+        QCheckBox* checkBoxAllergen = new QCheckBox(QString::fromStdString(al->getName()));
 
-        QCheckBox* checkBoxAllergen = new QCheckBox(QString::fromStdString(a->getName()));
+        if(std::find(allergenVector.begin(), allergenVector.end(), al->getName() ) != allergenVector.end()){
+            checkBoxAllergen->setChecked(true);
+        }
+
         layoutAllergens->addWidget(checkBoxAllergen);
     }
 
-}
-
-CreateRecipeWindow::~CreateRecipeWindow(){};
-
-
-void CreateRecipeWindow::show_window(){
-    show();
 
 }
-void CreateRecipeWindow::on_pushButton_clicked()
+
+void ModifyRecipeWindow::on_pushButton_clicked()
 {
     QString stringName(ui->Name->toPlainText());
     std::string name = stringName.toStdString();
@@ -92,23 +111,9 @@ void CreateRecipeWindow::on_pushButton_clicked()
         vegetarian = true;
     }
     std::string category = ui->Category->currentText().toStdString();
+
     Recipe* newRecipe = new Recipe(name, category, stepsString, ttcInt, ingredients, listOfAllergensString.toStdString(), vegetarian);
-   listOfRecipies.push_back(newRecipe);
-    emit recipeAdded(newRecipe);
+    emit recipeModified(newRecipe);
     hide();
 }
-
-
-void CreateRecipeWindow::on_TimeToCook_sliderMoved(int position)
-{
-    QString num = QString::number(ui->TimeToCook->value()) ;
-    ui->TimeToCookLabel->setText(num);
-}
-
-void CreateRecipeWindow::setUi(Recipe* a){
-    ui->Name->setText(QString::fromStdString(a->name));
-    ui->Steps->setPlainText(QString::fromStdString(a->steps));
-
-}
-
 

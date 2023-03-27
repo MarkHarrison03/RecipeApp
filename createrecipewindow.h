@@ -16,6 +16,7 @@ public:
     explicit CreateRecipeWindow(QWidget *parent = nullptr);
     ~CreateRecipeWindow();
     void show_window();
+    void setUi(Recipe* a);
 private slots:
     void on_pushButton_clicked();
     void on_TimeToCook_sliderMoved(int position);

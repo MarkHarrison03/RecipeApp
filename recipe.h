@@ -25,6 +25,7 @@ public:
 
 
     Recipe(string, string, string, int, QList<Ingredient*>, string, bool);
+    Recipe(const Recipe &a);
     void addIngredients(std::vector<Ingredient*>);
     int getCalories() override;
     string getName() override;

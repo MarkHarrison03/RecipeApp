@@ -2,12 +2,13 @@
 #include <string>
 #include <initializer_list>
 #include <type_traits>
-#include "./ui_mainwindow.h"
+#include <QDebug>
 
 #include <vector>
 using namespace std;
 
 Recipe::Recipe(string name, string category, string Steps, int time, QList<Ingredient* > listOfIngs, string allergens, bool isVegetarian){
+            qDebug() << listOfIngs;
             this->name = name;
             this->category = category;
             this->steps = Steps;
@@ -18,7 +19,15 @@ Recipe::Recipe(string name, string category, string Steps, int time, QList<Ingre
         };
 
 
-
+Recipe::Recipe(const Recipe&a){
+    name = a.name;
+    category = a.category;
+    steps = a.steps;
+    timeToCook = a.timeToCook;
+    listOfIngredients = a.listOfIngredients;
+    allergens = a.allergens;
+    isVegetarianBool = a.isVegetarianBool;
+}
 
 int Recipe::getCalories(){
     //overriding virtual function

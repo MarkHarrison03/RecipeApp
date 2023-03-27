@@ -7,7 +7,12 @@
 #include <sstream>
 #include <vector>
 #include "credits.h"
+#include <algorithm>
+#include <iterator>
 #include "allergen.h"
+#include <bits/stdc++.h>
+
+#include "modifyrecipewindow.h"
 #include "global.h"
 int counter = 0;
 std::vector<Recipe*> listOfRecipies{};
@@ -118,7 +123,6 @@ void MainWindow::updateRecipies(Recipe* a){
         baseRecipeRemoved = true;
     }
     qDebug() << "YOOOOY!";
-    listOfRecipies.push_back(a);
     qDebug() << QString::fromStdString(listOfRecipies.at(0)->name);
 }
 //void MainWindow::updateIngredients(){
@@ -196,6 +200,41 @@ void MainWindow::on_actionCredits_triggered()
 {
     Credits *a = new Credits;
     a->show();
+
+}
+
+
+
+
+
+void MainWindow::on_actionCopy_Current_Recipe_triggered()
+{
+    //SHALLOW COPY
+    Recipe* newRecipe = listOfRecipies.at(counter);
+    qDebug() << QString::fromStdString(newRecipe->listOfIngredients.at(0)->getName());
+    CreateRecipeWindow* a = new CreateRecipeWindow;
+    a->setUi(newRecipe);
+    a->show_window();
+
+}
+
+
+void MainWindow::on_actionCurrentRecipe_triggered()
+{
+
+    Recipe* newRecipe(listOfRecipies.at(counter));
+    for(int i = 0; i < newRecipe->listOfIngredients.size(); i++){
+    qDebug() << newRecipe->listOfIngredients.at(i);
+    }
+    ModifyRecipeWindow* a = new ModifyRecipeWindow;
+    connect(a, SIGNAL(recipeModified(Recipe*)), this, SLOT(modifyRecipe(Recipe*)));
+
+    a->setup(newRecipe);
+
+}
+void MainWindow::modifyRecipe(Recipe* a){
+    std::replace(listOfRecipies.begin(), listOfRecipies.end(),listOfRecipies.at(counter), a );
+    *ui << listOfRecipies.at(counter);
 
 }
 

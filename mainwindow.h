@@ -22,7 +22,7 @@ public:
     std::vector<Recipe*>getListOfRecipies();
 public slots:
 
-
+    void modifyRecipe(Recipe*);
     void updateRecipies(Recipe *);
 
 private slots:
@@ -38,6 +38,12 @@ private slots:
     void on_actionRecipe_triggered();
 
     void on_actionCredits_triggered();
+
+
+
+    void on_actionCopy_Current_Recipe_triggered();
+
+    void on_actionCurrentRecipe_triggered();
 
 private:
     Ui::MainWindow *ui;

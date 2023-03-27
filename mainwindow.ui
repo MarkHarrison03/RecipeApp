@@ -172,9 +172,23 @@
      <addaction name="actionIngredient"/>
      <addaction name="actionRecipe"/>
     </widget>
+    <widget class="QMenu" name="menuCopy">
+     <property name="title">
+      <string>Copy</string>
+     </property>
+     <addaction name="actionCopy_Current_Recipe"/>
+    </widget>
+    <widget class="QMenu" name="menuModify">
+     <property name="title">
+      <string>Modify</string>
+     </property>
+     <addaction name="actionCurrentRecipe"/>
+    </widget>
     <addaction name="separator"/>
     <addaction name="separator"/>
     <addaction name="menuCreate_new"/>
+    <addaction name="menuCopy"/>
+    <addaction name="menuModify"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -186,11 +200,6 @@
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionDelete_recipe">
-   <property name="text">
-    <string>Delete recipe</string>
-   </property>
-  </action>
   <action name="actionAllergen">
    <property name="text">
     <string>Allergen</string>
@@ -209,6 +218,16 @@
   <action name="actionCredits">
    <property name="text">
     <string>Credits</string>
+   </property>
+  </action>
+  <action name="actionCopy_Current_Recipe">
+   <property name="text">
+    <string>Copy Current Recipe</string>
+   </property>
+  </action>
+  <action name="actionCurrentRecipe">
+   <property name="text">
+    <string>Modify Current Recipe</string>
    </property>
   </action>
  </widget>

@@ -1,7 +1,7 @@
 #ifndef BASEFOODITEM_H
 #define BASEFOODITEM_H
 #include <string>
-
+//abstract class
 class BaseFoodItem
 {
 public:

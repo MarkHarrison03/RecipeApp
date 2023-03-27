@@ -1,8 +1,8 @@
 #include "addingredientwindow.h"
 #include "./ui_addingredientwindow.h"
 #include <QDebug>
-#include "allergen.h"
 #include <QIntValidator>
+#include "allergen.h"
 #include "ingredient.h"
 #include <QButtonGroup>
 using namespace staticAllergens;

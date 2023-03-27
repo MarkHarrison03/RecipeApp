@@ -7,6 +7,7 @@
 #include <QValidator>
 #include "recipe.h"
 #include "allergen.h"
+#define TTCLimit 9
 
 using namespace staticAllergens;
 CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
@@ -63,7 +64,15 @@ void CreateRecipeWindow::on_pushButton_clicked()
     QString steps(ui->Steps->toPlainText());
     std::string stepsString = steps.toStdString();
     QString TTC(ui->TimeToCookLabel->text());
-    int ttcInt = TTC.toInt();
+    struct s{
+    unsigned int TTCBitStruct : TTCLimit;
+    };
+
+    //ttc cant exceed 512
+    s structTTC;
+
+    structTTC.TTCBitStruct = TTC.toInt();
+
     QList<Ingredient *> ingredients;
     QList<QCheckBox *> checkboxes = ui->scrollArea->findChildren<QCheckBox *>();
 
@@ -92,7 +101,8 @@ void CreateRecipeWindow::on_pushButton_clicked()
         vegetarian = true;
     }
     std::string category = ui->Category->currentText().toStdString();
-    Recipe* newRecipe = new Recipe(name, category, stepsString, ttcInt, ingredients, listOfAllergensString.toStdString(), vegetarian);
+
+    Recipe* newRecipe = new Recipe(name, category, stepsString, structTTC.TTCBitStruct, ingredients, listOfAllergensString.toStdString(), vegetarian);
    listOfRecipies.push_back(newRecipe);
     emit recipeAdded(newRecipe);
     hide();

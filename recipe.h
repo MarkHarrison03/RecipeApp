@@ -24,6 +24,11 @@ private:
     QList<Ingredient *> listOfIngredients;
 
 public:
+    template<typename t>
+    inline t addStuff(t a, t b){
+      return a + b;
+    }
+
     Recipe(string, string, string, int, QList<Ingredient*>, string, bool);
     Recipe(const Recipe &a);
 
@@ -33,6 +38,7 @@ public:
     int getCalories() override;
     string getName() override;
     string getSteps();
+
     int getTimeToCook();
     string getAllergens();
     QList<Ingredient*> getListOfIngredients();

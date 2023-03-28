@@ -73,26 +73,100 @@ C++ Creator: Bjorne Stroustrup
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>362</x>
-     <y>49</y>
-     <width>301</width>
-     <height>261</height>
+     <x>380</x>
+     <y>30</y>
+     <width>311</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>22</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Obligatory Union</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>110</y>
+     <width>63</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
     <string/>
    </property>
-   <property name="pixmap">
-    <pixmap resource="image.qrc">:/new/glasses/glass.png</pixmap>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>190</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
    </property>
-   <property name="scaledContents">
-    <bool>true</bool>
+   <property name="text">
+    <string>Size taken up by above data:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>270</y>
+     <width>221</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Change type</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>170</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Size taken up by above data:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>230</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Current type:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>230</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="image.qrc"/>
-  <include location="image.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

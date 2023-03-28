@@ -34,7 +34,7 @@ int Recipe::getCalories(){
     //overriding virtual function
     int calories = 0;
     for(Ingredient * i : listOfIngredients){
-        calories += i->getCalories();
+        addStuff(calories, i->getCalories());
     }
     return calories;
 };

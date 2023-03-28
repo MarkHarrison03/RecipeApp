@@ -14,6 +14,15 @@ class Credits : public QDialog
 public:
     explicit Credits(QWidget *parent = nullptr);
     ~Credits();
+    union data{
+
+        int integer ;
+        long long longNum;
+
+    };
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::Credits *ui;

@@ -5,7 +5,7 @@
 #include <vector>
 #include <QDebug>
 #include "basefooditem.h"
-
+//inheritance
 class Allergen : public BaseFoodItem
 {
 
@@ -15,6 +15,8 @@ private:
 public:
     static std::vector<Allergen*> listOfAllergens;
     Allergen();
+    //destructors
+    ~Allergen();
     Allergen(std::string, bool);
    static std::vector<Allergen*> getListOfAllergens();
     bool isVegetarianBool;
@@ -22,6 +24,8 @@ public:
     bool isVegetarian() override;
     
 };
+
+//namespaces
 namespace staticAllergens{
 
 

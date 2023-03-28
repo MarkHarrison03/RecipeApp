@@ -1,4 +1,6 @@
+//header files and inclusion guards
 #ifndef RECIPE_H
+
 #define RECIPE_H
 #include <string>
 #include <vector>
@@ -12,8 +14,9 @@ using namespace std;
 
 class Recipe : public Ingredient, public BaseFoodItem
 {
+    //friendship
     friend class MainWindow;
-
+//priv and public
 private:
     string name;
     string category;
@@ -24,8 +27,9 @@ private:
     QList<Ingredient *> listOfIngredients;
 
 public:
+    //template for adding both calories of ints and calories of doubles
     template<typename t>
-    inline t addStuff(t a, t b){
+    inline t addNumbers(t a, t b){
       return a + b;
     }
 

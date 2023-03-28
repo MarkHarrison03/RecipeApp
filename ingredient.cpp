@@ -1,13 +1,14 @@
 #include "ingredient.h"
 #include <string>
 #include <vector>
+#include <qDebug>
 std::vector<Ingredient*> Ingredient::listOfIngredients;
 
 Ingredient::Ingredient(){}; //default constructor noargs
 
 Ingredient::Ingredient(std::string name, int calories) : name(name), calories(calories){}; //initializer list
 
-
+//c++ references
 Ingredient::Ingredient(Ingredient& copyIngredient){ //copy constructor
     name = copyIngredient.name;
     calories = copyIngredient.calories;
@@ -17,7 +18,9 @@ std::vector<Ingredient*> Ingredient::getListOfIngredients(){ //static method tha
     return listOfIngredients;
 };
 
-Ingredient::~Ingredient(){};
+Ingredient::~Ingredient(){
+    qDebug() << "goodbye Ingredient!";
+};
 //destructor
 void Ingredient::setIsVegetarian(bool value){
     isVegetarianBool = value;

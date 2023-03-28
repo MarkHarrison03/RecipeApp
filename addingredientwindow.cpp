@@ -48,9 +48,9 @@ void addingredientwindow::on_pushButton_clicked()
     if((QString::compare(text, "Enter Ingredient Name", Qt::CaseInsensitive) != 0)){
         Ingredient *ing = new Ingredient(text.toStdString(), calInt);
         Ingredient::addIngredient(ing);
-        ing->setIsVegetarian(vegetarian);
+
         emit ingredientsUpdated();
-        qDebug("Hello!");
+
 
     }
 

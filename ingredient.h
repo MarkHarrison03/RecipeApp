@@ -12,7 +12,7 @@ public:
     Ingredient(std::string name, int calories);
     Ingredient(Ingredient& copyIngredient);
     inline std::string getName(){return name;};
-
+    //virtual function
     virtual inline int getCalories(){return calories;};
     bool isVegetarian();
     static std::vector<Ingredient*> getListOfIngredients();
@@ -22,7 +22,7 @@ public:
 private:
     std::string name;
     static std::vector<Ingredient*> listOfIngredients;
-
+//protected
 protected:
     int calories;
 

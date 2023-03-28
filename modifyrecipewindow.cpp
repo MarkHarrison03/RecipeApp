@@ -3,6 +3,9 @@
 #include "allergen.h"
 #include "IncorrectInputException.h"
 #include <algorithm>
+#ifndef TTCLimit
+#define TTCLimit 9
+#endif
 ModifyRecipeWindow::ModifyRecipeWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ModifyRecipeWindow)
@@ -82,7 +85,7 @@ void ModifyRecipeWindow::on_pushButton_clicked()
     QString steps(ui->Steps->toPlainText());
     std::string stepsString = steps.toStdString();
     QString TTC(ui->TimeToCookLabel->text());
-    int ttcInt = TTC.toInt();
+    int ttcInt = TTC.toInt() ;
     QList<Ingredient *> ingredients;
     QList<QCheckBox *> checkboxes = ui->scrollArea->findChildren<QCheckBox *>();
 
@@ -97,6 +100,14 @@ void ModifyRecipeWindow::on_pushButton_clicked()
         }
     }
 
+    struct s{
+    unsigned int TTCBitStruct : TTCLimit;
+    };
+    //bitstruct to ensure that
+    //ttc cant exceed 512
+    s structTTC;
+
+    structTTC.TTCBitStruct = TTC.toInt();
     QString listOfAllergensString = "";
     QList<QCheckBox *>   checkboxAllergen = ui->scrollArea_2->findChildren<QCheckBox *>();
     for(QCheckBox * box: checkboxAllergen){
@@ -115,5 +126,12 @@ void ModifyRecipeWindow::on_pushButton_clicked()
     Recipe* newRecipe = new Recipe(name, category, stepsString, ttcInt, ingredients, listOfAllergensString.toStdString(), vegetarian);
     emit recipeModified(newRecipe);
     hide();
+}
+
+
+void ModifyRecipeWindow::on_TimeToCook_actionTriggered(int action)
+{
+    QString num = QString::number(ui->TimeToCook->value()) ;
+    ui->TimeToCookLabel->setText(num);
 }
 

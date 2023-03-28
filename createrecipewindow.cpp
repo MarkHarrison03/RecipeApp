@@ -7,7 +7,10 @@
 #include <QValidator>
 #include "recipe.h"
 #include "allergen.h"
+//advanced preprocessor directive
+#ifndef TTCLIMIT
 #define TTCLimit 9
+#endif
 
 using namespace staticAllergens;
 CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
@@ -24,10 +27,11 @@ CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
     std::string categories[5] = {"Breakfast", "Lunch", "Dinner","Snack", "Dessert"};
 
     for(int i = 0; i < 5; i++){
-
+    //arrays and array pointer arithmetic
     ui->Category->addItem(QString::fromStdString(*(categories + i)));
 
 }
+    qDebug()<<"HI";
     for(Ingredient* piece : Ingredient::getListOfIngredients()){
         qDebug() << QString::fromStdString(piece->getName());
         QCheckBox* checkBox = new QCheckBox(QString::fromStdString(piece->getName()));
@@ -73,7 +77,7 @@ void CreateRecipeWindow::on_pushButton_clicked()
     struct s{
     unsigned int TTCBitStruct : TTCLimit;
     };
-
+    //bitstruct to ensure that
     //ttc cant exceed 512
     s structTTC;
 
@@ -86,6 +90,7 @@ void CreateRecipeWindow::on_pushButton_clicked()
         if(box->isChecked()){
             std::string ingName = box->text().toStdString();
             for(Ingredient * a : Ingredient::getListOfIngredients()){
+                qDebug() <<"AFUWFAWNO";
                 if(a->getName() == ingName){
                     ingredients.append(a);
                 }

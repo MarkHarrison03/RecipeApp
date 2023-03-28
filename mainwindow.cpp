@@ -4,16 +4,12 @@
 #include "addallergenwindow.h"
 #include "addingredientwindow.h"
 #include "createrecipewindow.h"
-#include <sstream>
 #include <vector>
 #include "credits.h"
-#include <algorithm>
-#include <iterator>
 #include "allergen.h"
-#include <bits/stdc++.h>
-
 #include "modifyrecipewindow.h"
 #include "global.h"
+
 int counter = 0;
 std::vector<Recipe*> listOfRecipies{};
 bool baseRecipeRemoved = false;
@@ -30,27 +26,25 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
     ui->gridLayout->setSizeConstraint(QLayout::SetMinimumSize);
-    ui->label_Ingredients->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum); //NB find out whatws happening here
-//    ui->label_Ingredients->setWordWrap(true);
-//    std::string str = "Ingredients: ";
-//    for(const auto &piece : Ingredient::getListOfIngredients()){
-
-//        str += piece->getName();
-//        str += "\nCalories: ";
-//        str += piece->getCalories();
-//        str+= "\n";
-//    }
-//    ui->label_Ingredients->setText(QString::fromStdString( str ));
-//    MainWindow::on_pushButton_clicked();
-//    ui->label_steps->setText(QString::fromStdString(baseRecipe->steps));
+    ui->label_Ingredients->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
      *this << baseRecipe;
 };
-
+//memory management
 MainWindow::~MainWindow()
 {
+    for(Allergen* a : Allergen::getListOfAllergens()){
+        delete(a);
+    }
+    for(Ingredient* i : Ingredient::getListOfIngredients()){
+        delete(i);
+    }
+    for(Recipe * a : listOfRecipies){
+        delete(a);
+    }
     delete ui;
 }
 
+//operator overloading
 void MainWindow::operator<< ( Recipe* b){
     ui->titleLabel->setText(QString::fromStdString(b->name));
     ui->AllergiesLabel->setText("Allergens : " + QString::fromStdString(b->allergens));
@@ -119,12 +113,6 @@ void MainWindow::on_pushButton_2_clicked()
     }
     Recipe* currentRecipe = listOfRecipies.at(counter);
     *this << currentRecipe;
-    /*ui->titleLabel->setText(QString::fromStdString(currentRecipe->name));
-    ui->AllergiesLabel->setText("Allergens : " + QString::fromStdString(currentRecipe->allergens));
-    ui->DietLabel->setText("Dietary Restriction : " + QString::fromStdString(currentRecipe->isVegetarian()));
-    ui->CategoryLabel->setText("Category : " + QString::fromStdString(currentRecipe->category));
-    ui->TTCLabel->setText("Time to Cook (minutes) : " +QString::number(currentRecipe->timeToCook));
-    ui->CaloriesLabel->setText("Calories :"  + QString::number(currentRecipe->calories));*/
 
 
 }
@@ -136,10 +124,6 @@ void MainWindow::on_actionAllergen_triggered()
         connect(windowAllergen, SIGNAL(allergensUpdated()), this, SLOT(updateAllergens()));
         windowAllergen->show_window();
         qDebug() <<"TYo!";
-
-
-
-
 }
 
 
@@ -189,7 +173,7 @@ void MainWindow::on_actionCopy_Current_Recipe_triggered()
 
 void MainWindow::on_actionCurrentRecipe_triggered()
 {
-
+    //deep copy
     Recipe* newRecipe(listOfRecipies.at(counter));
     for(int i = 0; i < newRecipe->listOfIngredients.size(); i++){
     qDebug() << newRecipe->listOfIngredients.at(i);

@@ -12,8 +12,10 @@ class Credits : public QDialog
     Q_OBJECT
 
 public:
+
     explicit Credits(QWidget *parent = nullptr);
     ~Credits();
+    //union
     union data{
 
         int integer ;

@@ -18,14 +18,17 @@ Recipe::Recipe(string name, string category, string Steps, int time, QList<Ingre
             this->isVegetarianBool = isVegetarian;
         };
 
-    Recipe::~Recipe(){};
-
+Recipe::~Recipe(){
+    qDebug() << "Helloooo!";
+};
+//c++ deep copy constructor, plus c++ references
 Recipe::Recipe(const Recipe&a){
+
     name = a.name;
     category = a.category;
     steps = a.steps;
     timeToCook = a.timeToCook;
-    listOfIngredients = a.listOfIngredients;
+        listOfIngredients = a.listOfIngredients;
     allergens = a.allergens;
     isVegetarianBool = a.isVegetarianBool;
 }
@@ -34,7 +37,7 @@ int Recipe::getCalories(){
     //overriding virtual function
     int calories = 0;
     for(Ingredient * i : listOfIngredients){
-        addStuff(calories, i->getCalories());
+       calories = addNumbers(calories, i->getCalories());
     }
     return calories;
 };

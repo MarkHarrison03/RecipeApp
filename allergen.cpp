@@ -1,7 +1,7 @@
 #include "allergen.h"
 #include <sstream>
 #include <vector>
-
+//cpp object constructor sequence
 Allergen *a = new Allergen("Milk",true);
 Allergen *b = new Allergen("Eggs",true);
 Allergen *c = new Allergen("Fish",false);
@@ -20,6 +20,10 @@ Allergen::Allergen(std::string name, bool vegetarian){
     this->name = name;
     this->isVegetarianBool = vegetarian;
 };
+
+Allergen::~Allergen(){
+    qDebug() << "Goodbye allergen!";
+}
 
 
 

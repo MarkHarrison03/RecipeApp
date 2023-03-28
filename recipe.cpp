@@ -18,6 +18,7 @@ Recipe::Recipe(string name, string category, string Steps, int time, QList<Ingre
             this->isVegetarianBool = isVegetarian;
         };
 
+    Recipe::~Recipe(){};
 
 Recipe::Recipe(const Recipe&a){
     name = a.name;
@@ -49,4 +50,20 @@ bool Recipe::isVegetarian(){
 
 string Recipe::getName(){
     return name;
+}
+string Recipe::getSteps(){
+    return steps;
+};
+int Recipe::getTimeToCook(){
+    return timeToCook;
+};
+
+string Recipe::getAllergens(){
+    return allergens;
+};
+QList<Ingredient*> Recipe::getListOfIngredients(){
+    return listOfIngredients;
+};
+string Recipe::getCategory(){
+    return category;
 }

@@ -258,31 +258,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
          <height>28</height>
         </rect>
        </property>
-       <item>
-        <property name="text">
-         <string>Breakfast</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Lunch</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Dinner</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Snack</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Dessert</string>
-        </property>
-       </item>
       </widget>
       <widget class="QSlider" name="TimeToCook">
        <property name="geometry">

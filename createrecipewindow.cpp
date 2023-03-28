@@ -21,7 +21,13 @@ CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
     QVBoxLayout * layout = new QVBoxLayout(container);
     ui->scrollArea->setWidget(container);
     ui->scrollArea->setWidgetResizable(true);
+    std::string categories[5] = {"Breakfast", "Lunch", "Dinner","Snack", "Dessert"};
 
+    for(int i = 0; i < 5; i++){
+
+    ui->Category->addItem(QString::fromStdString(*(categories + i)));
+
+}
     for(Ingredient* piece : Ingredient::getListOfIngredients()){
         qDebug() << QString::fromStdString(piece->getName());
         QCheckBox* checkBox = new QCheckBox(QString::fromStdString(piece->getName()));
@@ -116,8 +122,8 @@ void CreateRecipeWindow::on_TimeToCook_sliderMoved(int position)
 }
 
 void CreateRecipeWindow::setUi(Recipe* a){
-    ui->Name->setText(QString::fromStdString(a->name));
-    ui->Steps->setPlainText(QString::fromStdString(a->steps));
+    ui->Name->setText(QString::fromStdString(a->getName()));
+    ui->Steps->setPlainText(QString::fromStdString(a->getSteps()));
 
 }
 

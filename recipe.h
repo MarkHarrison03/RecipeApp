@@ -12,9 +12,9 @@ using namespace std;
 
 class Recipe : public Ingredient, public BaseFoodItem
 {
+    friend class MainWindow;
 
-public:
-
+private:
     string name;
     string category;
     string steps;
@@ -23,12 +23,20 @@ public:
 
     QList<Ingredient *> listOfIngredients;
 
-
+public:
     Recipe(string, string, string, int, QList<Ingredient*>, string, bool);
     Recipe(const Recipe &a);
+
+    ~Recipe();
+
     void addIngredients(std::vector<Ingredient*>);
     int getCalories() override;
     string getName() override;
+    string getSteps();
+    int getTimeToCook();
+    string getAllergens();
+    QList<Ingredient*> getListOfIngredients();
+    string getCategory();
     bool isVegetarian() override;
 
 };

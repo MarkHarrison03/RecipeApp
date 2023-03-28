@@ -14,6 +14,7 @@ class MainWindow : public QMainWindow
 
 public:
     //static vector<Recipe *> listOfRecipies;
+    void operator<< ( Recipe* );
 
     friend class AddAllergenWindow;
     friend class deleterecipewindow;

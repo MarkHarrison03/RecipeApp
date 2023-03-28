@@ -19,9 +19,9 @@ ModifyRecipeWindow::~ModifyRecipeWindow()
 
 void ModifyRecipeWindow::setup(Recipe* a){
     show();
-    ui->Name->setText(QString::fromStdString(a->name));
-    ui->Category->setCurrentText(QString::fromStdString(a->category));
-    ui->Steps->setPlainText(QString::fromStdString(a->steps));
+    ui->Name->setText(QString::fromStdString(a->getName()));
+    ui->Category->setCurrentText(QString::fromStdString(a->getCategory()));
+    ui->Steps->setPlainText(QString::fromStdString(a->getSteps()));
 
     QWidget *container = new QWidget;
     QVBoxLayout * layout = new QVBoxLayout(container);
@@ -46,7 +46,7 @@ void ModifyRecipeWindow::setup(Recipe* a){
     ui->scrollArea_2->setWidget(containerAllergens);
     ui->scrollArea_2->setWidgetResizable(true);
     std::vector<std::string> allergenVector;
-    std::stringstream stream(a->allergens);
+    std::stringstream stream(a->getAllergens());
     std::string currentString;
     while(std::getline(stream, currentString, ' ')){
         allergenVector.push_back(currentString);

@@ -117,7 +117,6 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_actionAllergen_triggered()
 {
         AddAllergenWindow* windowAllergen = new AddAllergenWindow;
-        connect(windowAllergen, SIGNAL(allergensUpdated()), this, SLOT(updateAllergens()));
         windowAllergen->show_window();
 }
 
@@ -125,7 +124,6 @@ void MainWindow::on_actionAllergen_triggered()
 void MainWindow::on_actionIngredient_triggered()
 {
     addingredientwindow* windowIng = new addingredientwindow;
-    connect(windowIng, SIGNAL(ingredientsUpdated()), this, SLOT(updateIngredients()));
     windowIng->show_window();
 
 }

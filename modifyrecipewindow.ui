@@ -87,7 +87,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </property>
        <item>
         <property name="text">
-         <string>Normal Person Food</string>
+         <string>Not Vegetarian</string>
         </property>
        </item>
        <item>

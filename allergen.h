@@ -42,7 +42,6 @@ static std::string getAllergens(){
 static void addAllergen(Allergen* a){
 
     Allergen::listOfAllergens.push_back(a);
-    qDebug() << QString::fromStdString(staticAllergens::getAllergens());
 }
 
 static int getAllergenSize(){

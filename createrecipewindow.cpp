@@ -1,7 +1,6 @@
 #include "createrecipewindow.h"
 #include "ui_createrecipewindow.h"
 #include "ingredient.h"
-#include <QDebug>
 #include "IncorrectInputException.h"
 #include "global.h"
 #include <QValidator>
@@ -31,9 +30,7 @@ CreateRecipeWindow::CreateRecipeWindow(QWidget *parent) :
     ui->Category->addItem(QString::fromStdString(*(categories + i)));
 
 }
-    qDebug()<<"HI";
     for(Ingredient* piece : Ingredient::getListOfIngredients()){
-        qDebug() << QString::fromStdString(piece->getName());
         QCheckBox* checkBox = new QCheckBox(QString::fromStdString(piece->getName()));
         layout->addWidget(checkBox);
     }
@@ -63,12 +60,10 @@ void CreateRecipeWindow::on_pushButton_clicked()
     QString stringName(ui->Name->toPlainText());
     std::string name = stringName.toStdString();
    try{
-        qDebug() << stringName.compare("Enter Recipe Name");
         if(stringName.compare("Enter Recipe Name") == 0){
             throw IncorrectInputException();
         }
     }catch(IncorrectInputException e){
-        qDebug() << QString::fromStdString(e.what());
 
     }
     QString steps(ui->Steps->toPlainText());
@@ -90,7 +85,6 @@ void CreateRecipeWindow::on_pushButton_clicked()
         if(box->isChecked()){
             std::string ingName = box->text().toStdString();
             for(Ingredient * a : Ingredient::getListOfIngredients()){
-                qDebug() <<"AFUWFAWNO";
                 if(a->getName() == ingName){
                     ingredients.append(a);
                 }

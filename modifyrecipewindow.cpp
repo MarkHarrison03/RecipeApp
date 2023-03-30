@@ -33,10 +33,8 @@ void ModifyRecipeWindow::setup(Recipe* a){
     ui->scrollArea->setWidgetResizable(true);
 
     for(Ingredient* piece : Ingredient::getListOfIngredients()){
-        qDebug() << QString::fromStdString(piece->getName());
         QCheckBox* checkBox = new QCheckBox(QString::fromStdString(piece->getName()));
         for(Ingredient * i : a->getListOfIngredients()){
-            qDebug() << QString::fromStdString(i->getName()) << "FAUWONIFWA";
             if(QString::fromStdString(i->getName()).compare( checkBox->text()) == 0){
                 checkBox->setChecked(true);
             }
@@ -74,12 +72,10 @@ void ModifyRecipeWindow::on_pushButton_clicked()
     QString stringName(ui->Name->toPlainText());
     std::string name = stringName.toStdString();
    try{
-        qDebug() << stringName.compare("Enter Recipe Name");
         if(stringName.compare("Enter Recipe Name") == 0){
             throw IncorrectInputException();
         }
     }catch(IncorrectInputException e){
-        qDebug() << QString::fromStdString(e.what());
 
     }
     QString steps(ui->Steps->toPlainText());

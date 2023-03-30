@@ -23,7 +23,6 @@ addingredientwindow::addingredientwindow(QWidget *parent) :
 
 
 void addingredientwindow::show_window(){
-    qDebug() << "UP!";
     show();
 }
 

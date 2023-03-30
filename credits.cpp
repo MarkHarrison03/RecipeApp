@@ -12,7 +12,6 @@ Credits::Credits(QWidget *parent) :
 
     union data dat = {42};
     ui->label_5->setText(QString::number(dat.integer));
-    qDebug() << QChar::fromLatin1(sizeof(dat));
     QString s = ui->label_6->selectedText() + " " +  QString::number(sizeof(dat));
     ui->label_6->setText(s);
 }
@@ -28,7 +27,6 @@ void Credits::on_pushButton_clicked()
     if(longCurrently){
 
     ui->label_5->setText(QString::number(dat.integer));
-    qDebug() << QChar::fromLatin1(sizeof(dat)) << "!";
     QString s = ui->label_6->selectedText() + " " +  QString::number(sizeof(dat.integer));
     ui->label_6->setText(s);
     ui->label_9->setText("Integer");
@@ -36,7 +34,6 @@ void Credits::on_pushButton_clicked()
     }else{
 
         ui->label_5->setText(QString::number(dat.longNum));
-        qDebug() << QChar::fromLatin1(sizeof(dat));
         QString s = ui->label_6->selectedText() + " " +  QString::number(sizeof(dat.longNum));
         ui->label_6->setText(s);
         ui->label_9->setText("Long Long");

@@ -1,7 +1,7 @@
 #include "ingredient.h"
 #include <string>
 #include <vector>
-#include <qDebug>
+
 std::vector<Ingredient*> Ingredient::listOfIngredients;
 
 Ingredient::Ingredient(){}; //default constructor noargs
@@ -19,7 +19,6 @@ std::vector<Ingredient*> Ingredient::getListOfIngredients(){ //static method tha
 };
 
 Ingredient::~Ingredient(){
-    qDebug() << "goodbye Ingredient!";
 };
 //destructor
 void Ingredient::setIsVegetarian(bool value){

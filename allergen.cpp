@@ -22,7 +22,6 @@ Allergen::Allergen(std::string name, bool vegetarian){
 };
 
 Allergen::~Allergen(){
-    qDebug() << "Goodbye allergen!";
 }
 
 

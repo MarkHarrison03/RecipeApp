@@ -1,14 +1,11 @@
 #include "recipe.h"
 #include <string>
-#include <initializer_list>
-#include <type_traits>
-#include <QDebug>
+//#include <type_traits>
 
 #include <vector>
 using namespace std;
 
 Recipe::Recipe(string name, string category, string Steps, int time, QList<Ingredient* > listOfIngs, string allergens, bool isVegetarian){
-            qDebug() << listOfIngs;
             this->name = name;
             this->category = category;
             this->steps = Steps;
@@ -19,7 +16,6 @@ Recipe::Recipe(string name, string category, string Steps, int time, QList<Ingre
         };
 
 Recipe::~Recipe(){
-    qDebug() << "Helloooo!";
 };
 //c++ deep copy constructor, plus c++ references
 Recipe::Recipe(const Recipe&a){

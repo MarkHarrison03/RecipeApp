@@ -76,7 +76,6 @@ void MainWindow::on_pushButton_clicked()
 {
     counter++;
     if (counter >= listOfRecipies.size()){
-        qDebug() << "Pushbutton2 counter:" << counter;
 
         counter = 0;
     }
@@ -99,8 +98,6 @@ void MainWindow::updateRecipies(Recipe* a){
         listOfRecipies.erase(listOfRecipies.begin());
         baseRecipeRemoved = true;
     }
-    qDebug() << "YOOOOY!";
-    qDebug() << QString::fromStdString(listOfRecipies.at(0)->name);
 }
 
 void MainWindow::on_pushButton_2_clicked()
@@ -109,7 +106,6 @@ void MainWindow::on_pushButton_2_clicked()
     if (counter <= -1){
         counter = listOfRecipies.size() - 1;
 
-        qDebug() << "Pushbutton2 counter:" << counter;
     }
     Recipe* currentRecipe = listOfRecipies.at(counter);
     *this << currentRecipe;
@@ -123,7 +119,6 @@ void MainWindow::on_actionAllergen_triggered()
         AddAllergenWindow* windowAllergen = new AddAllergenWindow;
         connect(windowAllergen, SIGNAL(allergensUpdated()), this, SLOT(updateAllergens()));
         windowAllergen->show_window();
-        qDebug() <<"TYo!";
 }
 
 
@@ -132,7 +127,6 @@ void MainWindow::on_actionIngredient_triggered()
     addingredientwindow* windowIng = new addingredientwindow;
     connect(windowIng, SIGNAL(ingredientsUpdated()), this, SLOT(updateIngredients()));
     windowIng->show_window();
-    qDebug()<<"HEY!";
 
 }
 
@@ -163,7 +157,6 @@ void MainWindow::on_actionCopy_Current_Recipe_triggered()
 {
     //SHALLOW COPY
     Recipe* newRecipe = listOfRecipies.at(counter);
-    qDebug() << QString::fromStdString(newRecipe->listOfIngredients.at(0)->getName());
     CreateRecipeWindow* a = new CreateRecipeWindow;
     a->setUi(newRecipe);
     a->show_window();
@@ -176,7 +169,6 @@ void MainWindow::on_actionCurrentRecipe_triggered()
     //deep copy
     Recipe* newRecipe(listOfRecipies.at(counter));
     for(int i = 0; i < newRecipe->listOfIngredients.size(); i++){
-    qDebug() << newRecipe->listOfIngredients.at(i);
     }
     ModifyRecipeWindow* a = new ModifyRecipeWindow;
     connect(a, SIGNAL(recipeModified(Recipe*)), this, SLOT(modifyRecipe(Recipe*)));

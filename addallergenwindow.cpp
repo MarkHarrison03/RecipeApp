@@ -40,7 +40,6 @@ void AddAllergenWindow::on_pushButton_clicked()
         Allergen *newAllergen = new Allergen(text.toStdString(), vegetarian);
         addAllergen(newAllergen);
         emit allergensUpdated();
-        qDebug("Hello!");
 
     }
 

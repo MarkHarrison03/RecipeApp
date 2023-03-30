@@ -6,7 +6,9 @@ Credits::Credits(QWidget *parent) :
     ui(new Ui::Credits)
 {
     ui->setupUi(this);
-
+    ui->label_3->setTextFormat(Qt::RichText);
+    ui->label_3->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    ui->label_3->setOpenExternalLinks(true);
 
     union data dat = {42};
     ui->label_5->setText(QString::number(dat.integer));

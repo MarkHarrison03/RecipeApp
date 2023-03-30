@@ -62,9 +62,10 @@ void CreateRecipeWindow::on_pushButton_clicked()
    try{
         if(stringName.compare("Enter Recipe Name") == 0){
             throw IncorrectInputException();
+
         }
     }catch(IncorrectInputException e){
-
+        e.what();
     }
     QString steps(ui->Steps->toPlainText());
     std::string stepsString = steps.toStdString();
@@ -102,7 +103,7 @@ void CreateRecipeWindow::on_pushButton_clicked()
     }
     QString restriction = ui->Restrictions->currentText();
     bool vegetarian = false;
-    if(restriction.compare("Vegetarian")){
+    if(restriction.compare("Vegetarian") == 0){
         vegetarian = true;
     }
     std::string category = ui->Category->currentText().toStdString();

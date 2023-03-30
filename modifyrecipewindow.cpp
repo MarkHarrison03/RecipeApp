@@ -114,7 +114,7 @@ void ModifyRecipeWindow::on_pushButton_clicked()
     }
     QString restriction = ui->Restrictions->currentText();
     bool vegetarian = false;
-    if(restriction.compare("Vegetarian")){
+    if(restriction.compare("Vegetarian") == 0){
         vegetarian = true;
     }
     std::string category = ui->Category->currentText().toStdString();
